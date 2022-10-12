@@ -13,6 +13,10 @@
 		36DD6ADA28F652EB0071137F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36DD6AD928F652EB0071137F /* Assets.xcassets */; };
 		36DD6ADD28F652EB0071137F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36DD6ADB28F652EB0071137F /* LaunchScreen.storyboard */; };
 		36DD6AE928F6534D0071137F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6AE828F6534D0071137F /* MainViewController.swift */; };
+		36DD6AEB28F65E550071137F /* UnderLineSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6AEA28F65E550071137F /* UnderLineSegmentedControl.swift */; };
+		36DD6AEF28F65F2F0071137F /* RandomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6AEE28F65F2F0071137F /* RandomViewController.swift */; };
+		36DD6AF128F65F770071137F /* LatestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6AF028F65F770071137F /* LatestViewController.swift */; };
+		36DD6AF328F66BA20071137F /* CustomCollectioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6AF228F66BA20071137F /* CustomCollectioView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		36DD6ADC28F652EB0071137F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36DD6ADE28F652EB0071137F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36DD6AE828F6534D0071137F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		36DD6AEA28F65E550071137F /* UnderLineSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderLineSegmentedControl.swift; sourceTree = "<group>"; };
+		36DD6AEE28F65F2F0071137F /* RandomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewController.swift; sourceTree = "<group>"; };
+		36DD6AF028F65F770071137F /* LatestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestViewController.swift; sourceTree = "<group>"; };
+		36DD6AF228F66BA20071137F /* CustomCollectioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectioView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +81,8 @@
 		36DD6AE428F6532B0071137F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				36DD6AE828F6534D0071137F /* MainViewController.swift */,
+				36DD6AEC28F65E9B0071137F /* MainVC */,
+				36DD6AED28F65EDD0071137F /* PhotoListVC */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -81,6 +90,7 @@
 		36DD6AE528F653320071137F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				36DD6AF228F66BA20071137F /* CustomCollectioView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -97,6 +107,24 @@
 			children = (
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		36DD6AEC28F65E9B0071137F /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				36DD6AE828F6534D0071137F /* MainViewController.swift */,
+				36DD6AEA28F65E550071137F /* UnderLineSegmentedControl.swift */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		36DD6AED28F65EDD0071137F /* PhotoListVC */ = {
+			isa = PBXGroup;
+			children = (
+				36DD6AEE28F65F2F0071137F /* RandomViewController.swift */,
+				36DD6AF028F65F770071137F /* LatestViewController.swift */,
+			);
+			path = PhotoListVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,10 +197,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36DD6AF328F66BA20071137F /* CustomCollectioView.swift in Sources */,
 				36DD6AD828F652E90071137F /* PhotoCardDiaryApp.xcdatamodeld in Sources */,
 				36DD6ACE28F652E90071137F /* AppDelegate.swift in Sources */,
+				36DD6AF128F65F770071137F /* LatestViewController.swift in Sources */,
 				36DD6AD028F652E90071137F /* SceneDelegate.swift in Sources */,
+				36DD6AEF28F65F2F0071137F /* RandomViewController.swift in Sources */,
 				36DD6AE928F6534D0071137F /* MainViewController.swift in Sources */,
+				36DD6AEB28F65E550071137F /* UnderLineSegmentedControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

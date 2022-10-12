@@ -12,7 +12,7 @@ final class MainViewController: UIViewController {
     // MARK: - Property
     
     private let segmentedControl: UISegmentedControl = {
-        let segmentedControl = UnderlineSegmentedControl(items: ["추천", "최신"])
+        let segmentedControl = UnderlineSegmentedControl(items: ["추억", "최신"])
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         return segmentedControl
     }()
@@ -38,6 +38,23 @@ final class MainViewController: UIViewController {
         vc.dataSource = self
         vc.view.translatesAutoresizingMaskIntoConstraints = false
         return vc
+    }()
+    
+    private lazy var writeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "highlighter"), for: .normal)
+        button.tintColor = .black
+        button.backgroundColor = .white
+        button.clipsToBounds = true
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.masksToBounds = false
+        button.layer.shadowOffset = CGSize(width: 0, height: 4)
+        button.layer.shadowRadius = 5
+        button.layer.shadowOpacity = 0.3
+        button.layer.cornerRadius = 30
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(writeButtonTapped), for: .touchUpInside)
+        return button
     }()
     
     var dataViewControllers: [UIViewController] {
@@ -66,22 +83,22 @@ final class MainViewController: UIViewController {
     }
 }
 
-// MARK: - Setup UI Method
+// MARK: - Setup UI, Method
 
 extension MainViewController {
     private func setNavigationBar() {
         navigationItem.titleView = segmentedControl
-        
     }
     
     private func setupUI() {
         view.backgroundColor = .white
         setSegmentedControll()
         setPageViewControllerConstraint()
+        setWriteButtonConstraint()
     }
     
     private func setPageViewControllerConstraint() {
-        self.view.addSubview(pageViewController.view)
+        view.addSubview(pageViewController.view)
         
         NSLayoutConstraint.activate([
             pageViewController.view.leftAnchor.constraint(
@@ -127,6 +144,30 @@ extension MainViewController {
     @objc private func changeValue(control: UISegmentedControl) {
         self.currentPage = control.selectedSegmentIndex
     }
+    
+    private func setWriteButtonConstraint() {
+        view.addSubview(writeButton)
+        
+        NSLayoutConstraint.activate([
+            writeButton.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor,
+                constant: -10
+            ),
+            writeButton.bottomAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                constant: -100
+            ),
+            writeButton.heightAnchor.constraint(equalToConstant: 60),
+            writeButton.widthAnchor.constraint(equalToConstant: 60)
+        ])
+    }
+    
+    @objc private func writeButtonTapped() {
+        let vc = WriteViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+
 }
 
 

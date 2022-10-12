@@ -20,5 +20,12 @@ extension PhotoCardData {
     @NSManaged public var date: Date?
     @NSManaged public var memoText: String?
     @NSManaged public var image: Data?
-
+    
+    var dateString: String? {
+        let myFormatter = DateFormatter()
+        myFormatter.dateFormat = "yyyy-MM-dd"
+        guard let date = self.date else { return "" }
+        let savedDateString = myFormatter.string(from: date)
+        return savedDateString
+    }
 }

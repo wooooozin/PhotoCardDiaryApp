@@ -46,7 +46,7 @@ extension RandomViewController {
     }
 }
 
-// MARK: -
+// MARK: - VerticalCardSwiperDatasource
 
 extension RandomViewController: VerticalCardSwiperDatasource {
     func numberOfCards(

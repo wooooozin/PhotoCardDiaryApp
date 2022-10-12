@@ -63,8 +63,6 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         setNavigationBar()
         setupUI()
-        setConstraint()
-        setSegmentedControll()
     }
 }
 
@@ -72,32 +70,33 @@ final class MainViewController: UIViewController {
 
 extension MainViewController {
     private func setNavigationBar() {
-        self.navigationItem.titleView = segmentedControl
+        navigationItem.titleView = segmentedControl
         
     }
     
     private func setupUI() {
         view.backgroundColor = .white
-        
+        setSegmentedControll()
+        setPageViewControllerConstraint()
     }
     
-    private func setConstraint() {
+    private func setPageViewControllerConstraint() {
         self.view.addSubview(pageViewController.view)
         
         NSLayoutConstraint.activate([
-            self.pageViewController.view.leftAnchor.constraint(
+            pageViewController.view.leftAnchor.constraint(
                 equalTo: self.view.leftAnchor,
                 constant: 0
             ),
-            self.pageViewController.view.rightAnchor.constraint(
+            pageViewController.view.rightAnchor.constraint(
                 equalTo: self.view.rightAnchor,
                 constant: 0
             ),
-            self.pageViewController.view.bottomAnchor.constraint(
+            pageViewController.view.bottomAnchor.constraint(
                 equalTo: self.view.bottomAnchor,
                 constant: 0
             ),
-            self.pageViewController.view.topAnchor.constraint(
+            pageViewController.view.topAnchor.constraint(
                 equalTo: self.view.safeAreaLayoutGuide.topAnchor,
                 constant: 0
             )
@@ -105,7 +104,7 @@ extension MainViewController {
     }
     
     private func setSegmentedControll() {
-        self.segmentedControl.setTitleTextAttributes(
+        segmentedControl.setTitleTextAttributes(
             [
                 NSAttributedString.Key.foregroundColor: UIColor.systemGray3,
                 .font: UIFont.systemFont(ofSize: 20, weight: .bold)
@@ -113,16 +112,16 @@ extension MainViewController {
             ],
             for: .normal
         )
-        self.segmentedControl.setTitleTextAttributes(
+        segmentedControl.setTitleTextAttributes(
             [
                 NSAttributedString.Key.foregroundColor: UIColor.black,
                 .font: UIFont.systemFont(ofSize: 20, weight: .bold)
             ],
             for: .selected
         )
-        self.segmentedControl.addTarget(self, action: #selector(changeValue(control:)), for: .valueChanged)
-        self.segmentedControl.selectedSegmentIndex = 0
-        self.changeValue(control: self.segmentedControl)
+        segmentedControl.addTarget(self, action: #selector(changeValue(control:)), for: .valueChanged)
+        segmentedControl.selectedSegmentIndex = 0
+        changeValue(control: self.segmentedControl)
     }
     
     @objc private func changeValue(control: UISegmentedControl) {
@@ -164,8 +163,8 @@ extension MainViewController: UIPageViewControllerDataSource, UIPageViewControll
             let viewController = pageViewController.viewControllers?[0],
             let index = self.dataViewControllers.firstIndex(of: viewController)
         else { return }
-        self.currentPage = index
-        self.segmentedControl.selectedSegmentIndex = index
+        currentPage = index
+        segmentedControl.selectedSegmentIndex = index
     }
 }
 

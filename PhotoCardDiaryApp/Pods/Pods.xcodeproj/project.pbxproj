@@ -54,15 +54,15 @@
 		8C6CDD3025BCE34ED6696E8E56F55245 /* Pods-PhotoCardDiaryApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PhotoCardDiaryApp-dummy.m"; sourceTree = "<group>"; };
 		9C55789F8E4FB77D3F88B6FD6BE6B497 /* SwipeDirection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeDirection.swift; path = Sources/SwipeDirection.swift; sourceTree = "<group>"; };
 		9C6DACAACEFAB9797F90D651C03A9CDA /* VerticalCardSwiper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VerticalCardSwiper-umbrella.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A0D215FCB86E1499DCCDDA7AA086C2A4 /* VerticalCardSwiper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VerticalCardSwiper.debug.xcconfig; sourceTree = "<group>"; };
 		AA159AB5BBF35A57109E9A754405ED82 /* Pods-PhotoCardDiaryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PhotoCardDiaryApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B4B06B4E409FBC6D0F14B74E9722D010 /* Pods-PhotoCardDiaryApp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PhotoCardDiaryApp-Info.plist"; sourceTree = "<group>"; };
 		CAA512B126984CDCEE96234F32BABAD1 /* Pods-PhotoCardDiaryApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PhotoCardDiaryApp-acknowledgements.plist"; sourceTree = "<group>"; };
 		D397CF65F61BDABC8953BFF28F807908 /* VerticalCardSwiper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VerticalCardSwiper.swift; path = Sources/VerticalCardSwiper.swift; sourceTree = "<group>"; };
 		DB2AEF33A7D2C89649FB868E77A3D43E /* VerticalCardSwiper-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "VerticalCardSwiper-Info.plist"; sourceTree = "<group>"; };
-		E546B58EA4069366B11D69313FB99ED0 /* VerticalCardSwiper */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = VerticalCardSwiper; path = VerticalCardSwiper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1119A41FAB6E83D4EB8B50722B82B34 /* Pods-PhotoCardDiaryApp */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-PhotoCardDiaryApp"; path = Pods_PhotoCardDiaryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E546B58EA4069366B11D69313FB99ED0 /* VerticalCardSwiper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VerticalCardSwiper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1119A41FAB6E83D4EB8B50722B82B34 /* Pods_PhotoCardDiaryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoCardDiaryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F294088039329A9C2D126CF2C06EBCB6 /* VerticalCardSwiperDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VerticalCardSwiperDelegate.swift; path = Sources/VerticalCardSwiperDelegate.swift; sourceTree = "<group>"; };
 		F65C468E902CEBE8F84DF5E10380FE17 /* VerticalCardSwiperDatasource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VerticalCardSwiperDatasource.swift; path = Sources/VerticalCardSwiperDatasource.swift; sourceTree = "<group>"; };
 		F776D81F51734603BF6AA5276EBF4CBE /* VerticalCardSwiper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = VerticalCardSwiper.modulemap; sourceTree = "<group>"; };
@@ -107,8 +107,8 @@
 		485DFCF7F9B68C4856537777621ACF8D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F1119A41FAB6E83D4EB8B50722B82B34 /* Pods-PhotoCardDiaryApp */,
-				E546B58EA4069366B11D69313FB99ED0 /* VerticalCardSwiper */,
+				F1119A41FAB6E83D4EB8B50722B82B34 /* Pods_PhotoCardDiaryApp.framework */,
+				E546B58EA4069366B11D69313FB99ED0 /* VerticalCardSwiper.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,7 +153,6 @@
 				804CEEAAC18EAC5F17F9520765CE556C /* VerticalCardSwiperView.swift */,
 				91796E636AB7C8066B20A1BF25E0E071 /* Support Files */,
 			);
-			name = VerticalCardSwiper;
 			path = VerticalCardSwiper;
 			sourceTree = "<group>";
 		};
@@ -228,7 +227,7 @@
 			);
 			name = VerticalCardSwiper;
 			productName = VerticalCardSwiper;
-			productReference = E546B58EA4069366B11D69313FB99ED0 /* VerticalCardSwiper */;
+			productReference = E546B58EA4069366B11D69313FB99ED0 /* VerticalCardSwiper.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C8B669CCBB7FE048E8A2794E44EC0B2F /* Pods-PhotoCardDiaryApp */ = {
@@ -247,7 +246,7 @@
 			);
 			name = "Pods-PhotoCardDiaryApp";
 			productName = Pods_PhotoCardDiaryApp;
-			productReference = F1119A41FAB6E83D4EB8B50722B82B34 /* Pods-PhotoCardDiaryApp */;
+			productReference = F1119A41FAB6E83D4EB8B50722B82B34 /* Pods_PhotoCardDiaryApp.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -257,7 +256,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1400;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -349,7 +348,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/VerticalCardSwiper/VerticalCardSwiper-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/VerticalCardSwiper/VerticalCardSwiper-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -360,9 +359,12 @@
 				PRODUCT_NAME = VerticalCardSwiper;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -399,7 +401,10 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -437,7 +442,10 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -478,6 +486,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -524,7 +533,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/VerticalCardSwiper/VerticalCardSwiper-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/VerticalCardSwiper/VerticalCardSwiper-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -535,9 +544,12 @@
 				PRODUCT_NAME = VerticalCardSwiper;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -579,6 +591,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

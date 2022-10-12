@@ -61,6 +61,7 @@ final class WriteView: UIView {
     let memoTextView: UITextView = {
         let tv = UITextView()
         tv.textColor = .lightGray
+        tv.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         tv.isScrollEnabled = true
         tv.text = "당신의 순간을 기록해주세요."
         tv.translatesAutoresizingMaskIntoConstraints = false

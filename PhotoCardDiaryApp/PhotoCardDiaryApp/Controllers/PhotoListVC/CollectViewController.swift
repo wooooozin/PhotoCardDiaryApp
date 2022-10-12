@@ -11,5 +11,9 @@ import VerticalCardSwiper
 final class CollectViewController: UIViewController {
  
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
     
 }

@@ -11,7 +11,7 @@ import PhotosUI
 class WriteViewController: UIViewController {
     
     // MARK: - Property
-
+    
     private let writeView = WriteView()
     var photoData: PhotoCardData?
     let photoManager = CoreDataManager.shared
@@ -37,7 +37,7 @@ extension WriteViewController {
     private func setupButtonAction() {
         writeView.closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         writeView.addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
-      }
+    }
     
     private func setupTapGestures() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpImageView))
@@ -50,9 +50,8 @@ extension WriteViewController {
     
     @objc private func addButtonTapped() {
         if let photoData = self.photoData {
-            // 텍스트뷰에 저장되어 있는 메세지
             photoData.memoText = writeView.memoTextView.text
-            photoData.title = writeView.titleLabel.text
+            photoData.title = writeView.titleTextField.text
             photoData.image = writeView.mainImageView.image?.pngData()
             photoManager.updatePhotoCardData(newPhotoData: photoData) {
                 print("업데이트 완료")
@@ -60,9 +59,9 @@ extension WriteViewController {
             }
         } else {
             let memoText = writeView.memoTextView.text
-            let title = writeView.titleLabel.text
+            let title = writeView.titleTextField.text
             let image = writeView.mainImageView.image?.pngData()
-            photoManager.savePhotoCardData(title: memoText, memoText: title, image: image) {
+            photoManager.savePhotoCardData(title: title, memoText: memoText, image: image) {
                 print("저장완료")
                 self.dismiss(animated: true)
             }
@@ -77,6 +76,8 @@ extension WriteViewController {
         present(picker, animated: true, completion: nil)
     }
 }
+
+// MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
 
 extension WriteViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     func imagePickerController(

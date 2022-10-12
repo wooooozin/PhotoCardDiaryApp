@@ -12,21 +12,28 @@ import VerticalCardSwiper
 final class PhotoCardCell: CardCell {
     
     // MARK: - Property
-
-    private let photoImageView: UIImageView = {
+    var touchUpImageViewPressed: (PhotoCardCell) -> Void = { (sender) in }
+    var longTouchUpImageViewPressed: () -> Void = { }
+    
+    lazy var photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = .white
+        imageView.clipsToBounds = true
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touchUpImageView)))
+        imageView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(longTouchUpImageView)))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    private lazy var likeButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "bookmark"), for: .normal)
-        button.tintColor = .white
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    let wetherImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(systemName: "sun.min")
+        imageView.tintColor = .white
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
     private let titleLabel: UILabel = {
@@ -74,9 +81,9 @@ final class PhotoCardCell: CardCell {
     private func setupUI() {
         self.photoImageView.clipsToBounds = true
         self.photoImageView.layer.cornerRadius = 8
-
+        
         setPhotoImageViewConstraint()
-        setLikeButtonConstraint()
+        setWeatherImageConstraint()
         setLabelConstraint()
     }
     
@@ -90,12 +97,12 @@ final class PhotoCardCell: CardCell {
         ])
     }
     
-    private func setLikeButtonConstraint() {
-        self.addSubview(likeButton)
+    private func setWeatherImageConstraint() {
+        self.addSubview(wetherImage)
         NSLayoutConstraint.activate([
-            likeButton.topAnchor.constraint(equalTo: photoImageView.topAnchor, constant: 20),
-            likeButton.trailingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: -20),
-            likeButton.heightAnchor.constraint(equalToConstant: 40)
+            wetherImage.topAnchor.constraint(equalTo: photoImageView.topAnchor, constant: 20),
+            wetherImage.trailingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: -20),
+            wetherImage.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
@@ -121,5 +128,13 @@ final class PhotoCardCell: CardCell {
         dateLabel.text = photoCardData?.dateString
         guard let data = photoCardData?.image else { return }
         photoImageView.image = UIImage(data: data)
+    }
+    
+    @objc func touchUpImageView() {
+        touchUpImageViewPressed(self)
+    }
+    
+    @objc func longTouchUpImageView() {
+        longTouchUpImageViewPressed()
     }
 }

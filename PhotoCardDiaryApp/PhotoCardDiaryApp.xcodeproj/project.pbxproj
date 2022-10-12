@@ -15,6 +15,7 @@
 		3670DB4A28F6A5B70087812E /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB4928F6A5B70087812E /* WriteView.swift */; };
 		3670DB4C28F6EE570087812E /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB4B28F6EE570087812E /* EmptyCell.swift */; };
 		3670DB4F28F6FD070087812E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB4E28F6FD070087812E /* DetailViewController.swift */; };
+		3670DB5128F7131D0087812E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB5028F7131D0087812E /* DetailView.swift */; };
 		36DD6ACE28F652E90071137F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6ACD28F652E90071137F /* AppDelegate.swift */; };
 		36DD6AD028F652E90071137F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6ACF28F652E90071137F /* SceneDelegate.swift */; };
 		36DD6AD828F652E90071137F /* PhotoCardDiaryApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6AD628F652E90071137F /* PhotoCardDiaryApp.xcdatamodeld */; };
@@ -38,6 +39,7 @@
 		3670DB4928F6A5B70087812E /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
 		3670DB4B28F6EE570087812E /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
 		3670DB4E28F6FD070087812E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		3670DB5028F7131D0087812E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		36DD6ACA28F652E90071137F /* PhotoCardDiaryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoCardDiaryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36DD6ACD28F652E90071137F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36DD6ACF28F652E90071137F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,13 @@
 			path = DetailVC;
 			sourceTree = "<group>";
 		};
+		3670DB5428F71CD10087812E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		36DD6AC128F652E90071137F = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				36DD6AE728F6533D0071137F /* Helpers */,
+				3670DB5428F71CD10087812E /* Network */,
 				36DD6AE628F653370071137F /* Models */,
 				36DD6AE528F653320071137F /* Views */,
 				36DD6AE428F6532B0071137F /* Controllers */,
@@ -132,6 +142,7 @@
 				3670DB3A28F670590087812E /* PhotoCardCell.swift */,
 				3670DB4B28F6EE570087812E /* EmptyCell.swift */,
 				3670DB4928F6A5B70087812E /* WriteView.swift */,
+				3670DB5028F7131D0087812E /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -311,6 +322,7 @@
 				36DD6AF128F65F770071137F /* CollectViewController.swift in Sources */,
 				3670DB4828F697B50087812E /* WriteViewController.swift in Sources */,
 				36DD6AD028F652E90071137F /* SceneDelegate.swift in Sources */,
+				3670DB5128F7131D0087812E /* DetailView.swift in Sources */,
 				36DD6AEF28F65F2F0071137F /* CardViewController.swift in Sources */,
 				36DD6AE928F6534D0071137F /* MainViewController.swift in Sources */,
 				3670DB4A28F6A5B70087812E /* WriteView.swift in Sources */,

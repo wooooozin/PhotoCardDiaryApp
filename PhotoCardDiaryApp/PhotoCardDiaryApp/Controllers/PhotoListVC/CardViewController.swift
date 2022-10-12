@@ -55,10 +55,6 @@ extension CardViewController {
             forCellWithReuseIdentifier: "EmptyCell"
         )
     }
-    
-    private func setButtonAction() {
-        
-    }
 }
 
 // MARK: - VerticalCardSwiperDatasource
@@ -96,7 +92,18 @@ extension CardViewController: VerticalCardSwiperDatasource {
             }
             let photoData = photoManager.getPhotoListFromCoreData()
             cell.photoCardData = photoData[index]
+            cell.touchUpImageViewPressed = { [weak self] (senderCell) in
+                let vc = DetailViewController()
+                vc.photoCardData = photoData[index]
+                vc.modalPresentationStyle = .overFullScreen
+                self?.present(vc, animated: true)
+            }
+            cell.longTouchUpImageViewPressed = {
+                print(#function)
+                
+            }
             return cell
         }
     }
 }
+

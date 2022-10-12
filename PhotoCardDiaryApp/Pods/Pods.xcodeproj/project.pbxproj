@@ -1,0 +1,642 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B48CE0E1FB07A5DE482CC6B4C87DC4B /* VerticalCardSwiperDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F294088039329A9C2D126CF2C06EBCB6 /* VerticalCardSwiperDelegate.swift */; };
+		1EBD0EFDD695C5B0422967F88A47245C /* VerticalCardSwiperDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65C468E902CEBE8F84DF5E10380FE17 /* VerticalCardSwiperDatasource.swift */; };
+		22A0AB1905C6C533C09DADA4A28AE7BD /* VerticalCardSwiperFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BE0ACC3DBF65C6F8DFE5BF96EC7A92 /* VerticalCardSwiperFlowLayout.swift */; };
+		382D21CE7A32C1E3BC302669C001619B /* VerticalCardSwiper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D397CF65F61BDABC8953BFF28F807908 /* VerticalCardSwiper.swift */; };
+		43544AF80C91613FD20A34B43DF24323 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		444C2918E81686BD2769AC8AAEC865A3 /* VerticalCardSwiperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804CEEAAC18EAC5F17F9520765CE556C /* VerticalCardSwiperView.swift */; };
+		5A70E19EEA8431982033A32F25598F87 /* SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C55789F8E4FB77D3F88B6FD6BE6B497 /* SwipeDirection.swift */; };
+		75A451A8995774396D884528938AB28F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		7E45CE80CC958634170A7C220F0D9FD7 /* Pods-PhotoCardDiaryApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E09659C4F12D46B8F7AF943ACFA8AD0 /* Pods-PhotoCardDiaryApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		82ED0500FCACD505B446F18B5DC7F972 /* Pods-PhotoCardDiaryApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6CDD3025BCE34ED6696E8E56F55245 /* Pods-PhotoCardDiaryApp-dummy.m */; };
+		C8023018541A35836A0CE502F6176264 /* CardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECC3216C5ABFAEFC4BD86FA74913BBC /* CardDelegate.swift */; };
+		E246DC76DF84C0755E03A7CC50848D3D /* VerticalCardSwiper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C6DACAACEFAB9797F90D651C03A9CDA /* VerticalCardSwiper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5365BEC99F28820534BC0D423AE91F2 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C8634D240651CDF0560DB931C81106 /* CardCell.swift */; };
+		ECC3A7D1B8DFB0E8AA0ACE49EF88A345 /* PanDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D356D234667D5212C80F946B3B4B20 /* PanDirection.swift */; };
+		FA6612929CB9E7EB80DDBF810B498E05 /* VerticalCardSwiper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C03A0E1AE532B1CE205D5FD6B22E86E /* VerticalCardSwiper-dummy.m */; };
+		FD29AA2F9B16646C2CB05961B8B5D218 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C11339816CD17FEC9EAC5A7E58B2C7 /* Extensions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0FB54A959D2187C086752CD52A4A776A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 207F12AADC9561F2D78577DDD788B9C5;
+			remoteInfo = VerticalCardSwiper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03D356D234667D5212C80F946B3B4B20 /* PanDirection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanDirection.swift; path = Sources/PanDirection.swift; sourceTree = "<group>"; };
+		0ECC3216C5ABFAEFC4BD86FA74913BBC /* CardDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardDelegate.swift; path = Sources/CardDelegate.swift; sourceTree = "<group>"; };
+		185A71150A79837498BAD32A0BB4958A /* Pods-PhotoCardDiaryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PhotoCardDiaryApp.release.xcconfig"; sourceTree = "<group>"; };
+		1CECD3982B8F25F20DCA1FA95837DEC5 /* Pods-PhotoCardDiaryApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PhotoCardDiaryApp.modulemap"; sourceTree = "<group>"; };
+		2BB8F21AF2AE8A60F22FF41FCC56803B /* Pods-PhotoCardDiaryApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PhotoCardDiaryApp-acknowledgements.markdown"; sourceTree = "<group>"; };
+		38C8634D240651CDF0560DB931C81106 /* CardCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardCell.swift; path = Sources/CardCell.swift; sourceTree = "<group>"; };
+		3BB88C184DDA1EE439460DB79E9748AE /* VerticalCardSwiper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VerticalCardSwiper.release.xcconfig; sourceTree = "<group>"; };
+		59BE0ACC3DBF65C6F8DFE5BF96EC7A92 /* VerticalCardSwiperFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VerticalCardSwiperFlowLayout.swift; path = Sources/VerticalCardSwiperFlowLayout.swift; sourceTree = "<group>"; };
+		694775EF81D0FACD16D02EFE492526DD /* Pods-PhotoCardDiaryApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PhotoCardDiaryApp-frameworks.sh"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7C03A0E1AE532B1CE205D5FD6B22E86E /* VerticalCardSwiper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "VerticalCardSwiper-dummy.m"; sourceTree = "<group>"; };
+		7E09659C4F12D46B8F7AF943ACFA8AD0 /* Pods-PhotoCardDiaryApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PhotoCardDiaryApp-umbrella.h"; sourceTree = "<group>"; };
+		804CEEAAC18EAC5F17F9520765CE556C /* VerticalCardSwiperView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VerticalCardSwiperView.swift; path = Sources/VerticalCardSwiperView.swift; sourceTree = "<group>"; };
+		895853E378093425475A4A2979994316 /* VerticalCardSwiper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VerticalCardSwiper-prefix.pch"; sourceTree = "<group>"; };
+		89C11339816CD17FEC9EAC5A7E58B2C7 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Sources/Extensions.swift; sourceTree = "<group>"; };
+		8C6CDD3025BCE34ED6696E8E56F55245 /* Pods-PhotoCardDiaryApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PhotoCardDiaryApp-dummy.m"; sourceTree = "<group>"; };
+		9C55789F8E4FB77D3F88B6FD6BE6B497 /* SwipeDirection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeDirection.swift; path = Sources/SwipeDirection.swift; sourceTree = "<group>"; };
+		9C6DACAACEFAB9797F90D651C03A9CDA /* VerticalCardSwiper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VerticalCardSwiper-umbrella.h"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A0D215FCB86E1499DCCDDA7AA086C2A4 /* VerticalCardSwiper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VerticalCardSwiper.debug.xcconfig; sourceTree = "<group>"; };
+		AA159AB5BBF35A57109E9A754405ED82 /* Pods-PhotoCardDiaryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PhotoCardDiaryApp.debug.xcconfig"; sourceTree = "<group>"; };
+		B4B06B4E409FBC6D0F14B74E9722D010 /* Pods-PhotoCardDiaryApp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PhotoCardDiaryApp-Info.plist"; sourceTree = "<group>"; };
+		CAA512B126984CDCEE96234F32BABAD1 /* Pods-PhotoCardDiaryApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PhotoCardDiaryApp-acknowledgements.plist"; sourceTree = "<group>"; };
+		D397CF65F61BDABC8953BFF28F807908 /* VerticalCardSwiper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VerticalCardSwiper.swift; path = Sources/VerticalCardSwiper.swift; sourceTree = "<group>"; };
+		DB2AEF33A7D2C89649FB868E77A3D43E /* VerticalCardSwiper-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "VerticalCardSwiper-Info.plist"; sourceTree = "<group>"; };
+		E546B58EA4069366B11D69313FB99ED0 /* VerticalCardSwiper */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = VerticalCardSwiper; path = VerticalCardSwiper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1119A41FAB6E83D4EB8B50722B82B34 /* Pods-PhotoCardDiaryApp */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-PhotoCardDiaryApp"; path = Pods_PhotoCardDiaryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F294088039329A9C2D126CF2C06EBCB6 /* VerticalCardSwiperDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VerticalCardSwiperDelegate.swift; path = Sources/VerticalCardSwiperDelegate.swift; sourceTree = "<group>"; };
+		F65C468E902CEBE8F84DF5E10380FE17 /* VerticalCardSwiperDatasource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VerticalCardSwiperDatasource.swift; path = Sources/VerticalCardSwiperDatasource.swift; sourceTree = "<group>"; };
+		F776D81F51734603BF6AA5276EBF4CBE /* VerticalCardSwiper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = VerticalCardSwiper.modulemap; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		73154A873B5AA9E9055D757BADF6B7E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75A451A8995774396D884528938AB28F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEA4C0B1F2FB1FF0AA60AFF0857AC21B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43544AF80C91613FD20A34B43DF24323 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		052626AF658F54F48983E6A09D9588C4 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				63D42843AAC18C2C98D142097FB7DD58 /* Pods-PhotoCardDiaryApp */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		1C1178A07490F866096283C0ED63DC26 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8F7091748DF9AD1BCCD6736D927F7B2A /* VerticalCardSwiper */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		485DFCF7F9B68C4856537777621ACF8D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1119A41FAB6E83D4EB8B50722B82B34 /* Pods-PhotoCardDiaryApp */,
+				E546B58EA4069366B11D69313FB99ED0 /* VerticalCardSwiper */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		63D42843AAC18C2C98D142097FB7DD58 /* Pods-PhotoCardDiaryApp */ = {
+			isa = PBXGroup;
+			children = (
+				1CECD3982B8F25F20DCA1FA95837DEC5 /* Pods-PhotoCardDiaryApp.modulemap */,
+				2BB8F21AF2AE8A60F22FF41FCC56803B /* Pods-PhotoCardDiaryApp-acknowledgements.markdown */,
+				CAA512B126984CDCEE96234F32BABAD1 /* Pods-PhotoCardDiaryApp-acknowledgements.plist */,
+				8C6CDD3025BCE34ED6696E8E56F55245 /* Pods-PhotoCardDiaryApp-dummy.m */,
+				694775EF81D0FACD16D02EFE492526DD /* Pods-PhotoCardDiaryApp-frameworks.sh */,
+				B4B06B4E409FBC6D0F14B74E9722D010 /* Pods-PhotoCardDiaryApp-Info.plist */,
+				7E09659C4F12D46B8F7AF943ACFA8AD0 /* Pods-PhotoCardDiaryApp-umbrella.h */,
+				AA159AB5BBF35A57109E9A754405ED82 /* Pods-PhotoCardDiaryApp.debug.xcconfig */,
+				185A71150A79837498BAD32A0BB4958A /* Pods-PhotoCardDiaryApp.release.xcconfig */,
+			);
+			name = "Pods-PhotoCardDiaryApp";
+			path = "Target Support Files/Pods-PhotoCardDiaryApp";
+			sourceTree = "<group>";
+		};
+		8F7091748DF9AD1BCCD6736D927F7B2A /* VerticalCardSwiper */ = {
+			isa = PBXGroup;
+			children = (
+				38C8634D240651CDF0560DB931C81106 /* CardCell.swift */,
+				0ECC3216C5ABFAEFC4BD86FA74913BBC /* CardDelegate.swift */,
+				89C11339816CD17FEC9EAC5A7E58B2C7 /* Extensions.swift */,
+				03D356D234667D5212C80F946B3B4B20 /* PanDirection.swift */,
+				9C55789F8E4FB77D3F88B6FD6BE6B497 /* SwipeDirection.swift */,
+				D397CF65F61BDABC8953BFF28F807908 /* VerticalCardSwiper.swift */,
+				F65C468E902CEBE8F84DF5E10380FE17 /* VerticalCardSwiperDatasource.swift */,
+				F294088039329A9C2D126CF2C06EBCB6 /* VerticalCardSwiperDelegate.swift */,
+				59BE0ACC3DBF65C6F8DFE5BF96EC7A92 /* VerticalCardSwiperFlowLayout.swift */,
+				804CEEAAC18EAC5F17F9520765CE556C /* VerticalCardSwiperView.swift */,
+				91796E636AB7C8066B20A1BF25E0E071 /* Support Files */,
+			);
+			name = VerticalCardSwiper;
+			path = VerticalCardSwiper;
+			sourceTree = "<group>";
+		};
+		91796E636AB7C8066B20A1BF25E0E071 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F776D81F51734603BF6AA5276EBF4CBE /* VerticalCardSwiper.modulemap */,
+				7C03A0E1AE532B1CE205D5FD6B22E86E /* VerticalCardSwiper-dummy.m */,
+				DB2AEF33A7D2C89649FB868E77A3D43E /* VerticalCardSwiper-Info.plist */,
+				895853E378093425475A4A2979994316 /* VerticalCardSwiper-prefix.pch */,
+				9C6DACAACEFAB9797F90D651C03A9CDA /* VerticalCardSwiper-umbrella.h */,
+				A0D215FCB86E1499DCCDDA7AA086C2A4 /* VerticalCardSwiper.debug.xcconfig */,
+				3BB88C184DDA1EE439460DB79E9748AE /* VerticalCardSwiper.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/VerticalCardSwiper";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				1C1178A07490F866096283C0ED63DC26 /* Pods */,
+				485DFCF7F9B68C4856537777621ACF8D /* Products */,
+				052626AF658F54F48983E6A09D9588C4 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		32186606DF38AAF6E7973A64129313D9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E45CE80CC958634170A7C220F0D9FD7 /* Pods-PhotoCardDiaryApp-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDFC58DDB5768F16DA8BB53F2C3BD960 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E246DC76DF84C0755E03A7CC50848D3D /* VerticalCardSwiper-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		207F12AADC9561F2D78577DDD788B9C5 /* VerticalCardSwiper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7CD37D5D2815EBADE2D81D70A7B116F /* Build configuration list for PBXNativeTarget "VerticalCardSwiper" */;
+			buildPhases = (
+				DDFC58DDB5768F16DA8BB53F2C3BD960 /* Headers */,
+				2F6D3426E2A359686F147CE0251BFE19 /* Sources */,
+				FEA4C0B1F2FB1FF0AA60AFF0857AC21B /* Frameworks */,
+				06DE6438A1D53ECA930D61276C278F3C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VerticalCardSwiper;
+			productName = VerticalCardSwiper;
+			productReference = E546B58EA4069366B11D69313FB99ED0 /* VerticalCardSwiper */;
+			productType = "com.apple.product-type.framework";
+		};
+		C8B669CCBB7FE048E8A2794E44EC0B2F /* Pods-PhotoCardDiaryApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BBF744CA888F72233A4142EDB06432D /* Build configuration list for PBXNativeTarget "Pods-PhotoCardDiaryApp" */;
+			buildPhases = (
+				32186606DF38AAF6E7973A64129313D9 /* Headers */,
+				274B9664A14D73114B7CA46CA60D0706 /* Sources */,
+				73154A873B5AA9E9055D757BADF6B7E3 /* Frameworks */,
+				1B0FF706E62B1F253CD99C0FAF929C2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E75617F6C3788C8F3FBB43F027CA096 /* PBXTargetDependency */,
+			);
+			name = "Pods-PhotoCardDiaryApp";
+			productName = Pods_PhotoCardDiaryApp;
+			productReference = F1119A41FAB6E83D4EB8B50722B82B34 /* Pods-PhotoCardDiaryApp */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 485DFCF7F9B68C4856537777621ACF8D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C8B669CCBB7FE048E8A2794E44EC0B2F /* Pods-PhotoCardDiaryApp */,
+				207F12AADC9561F2D78577DDD788B9C5 /* VerticalCardSwiper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		06DE6438A1D53ECA930D61276C278F3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1B0FF706E62B1F253CD99C0FAF929C2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		274B9664A14D73114B7CA46CA60D0706 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82ED0500FCACD505B446F18B5DC7F972 /* Pods-PhotoCardDiaryApp-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F6D3426E2A359686F147CE0251BFE19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5365BEC99F28820534BC0D423AE91F2 /* CardCell.swift in Sources */,
+				C8023018541A35836A0CE502F6176264 /* CardDelegate.swift in Sources */,
+				FD29AA2F9B16646C2CB05961B8B5D218 /* Extensions.swift in Sources */,
+				ECC3A7D1B8DFB0E8AA0ACE49EF88A345 /* PanDirection.swift in Sources */,
+				5A70E19EEA8431982033A32F25598F87 /* SwipeDirection.swift in Sources */,
+				382D21CE7A32C1E3BC302669C001619B /* VerticalCardSwiper.swift in Sources */,
+				FA6612929CB9E7EB80DDBF810B498E05 /* VerticalCardSwiper-dummy.m in Sources */,
+				1EBD0EFDD695C5B0422967F88A47245C /* VerticalCardSwiperDatasource.swift in Sources */,
+				0B48CE0E1FB07A5DE482CC6B4C87DC4B /* VerticalCardSwiperDelegate.swift in Sources */,
+				22A0AB1905C6C533C09DADA4A28AE7BD /* VerticalCardSwiperFlowLayout.swift in Sources */,
+				444C2918E81686BD2769AC8AAEC865A3 /* VerticalCardSwiperView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0E75617F6C3788C8F3FBB43F027CA096 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VerticalCardSwiper;
+			target = 207F12AADC9561F2D78577DDD788B9C5 /* VerticalCardSwiper */;
+			targetProxy = 0FB54A959D2187C086752CD52A4A776A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0011D44371BF64683E9B6669919A7253 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0D215FCB86E1499DCCDDA7AA086C2A4 /* VerticalCardSwiper.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/VerticalCardSwiper/VerticalCardSwiper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/VerticalCardSwiper/VerticalCardSwiper-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/VerticalCardSwiper/VerticalCardSwiper.modulemap";
+				PRODUCT_MODULE_NAME = VerticalCardSwiper;
+				PRODUCT_NAME = VerticalCardSwiper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		15D959CF4B5B1542CCDBD13F9EB84C7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 185A71150A79837498BAD32A0BB4958A /* Pods-PhotoCardDiaryApp.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PhotoCardDiaryApp/Pods-PhotoCardDiaryApp-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PhotoCardDiaryApp/Pods-PhotoCardDiaryApp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		44771DFAA843CDB7FF94E4B55E143365 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA159AB5BBF35A57109E9A754405ED82 /* Pods-PhotoCardDiaryApp.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PhotoCardDiaryApp/Pods-PhotoCardDiaryApp-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PhotoCardDiaryApp/Pods-PhotoCardDiaryApp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4BC7450F9457737EE3E637BA155B56F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		744E3D47ECE12042F61A0E68D3973708 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BB88C184DDA1EE439460DB79E9748AE /* VerticalCardSwiper.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/VerticalCardSwiper/VerticalCardSwiper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/VerticalCardSwiper/VerticalCardSwiper-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/VerticalCardSwiper/VerticalCardSwiper.modulemap";
+				PRODUCT_MODULE_NAME = VerticalCardSwiper;
+				PRODUCT_NAME = VerticalCardSwiper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8B5A46FF8D3C1289CDEE3BAFACABCD2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BC7450F9457737EE3E637BA155B56F7 /* Debug */,
+				8B5A46FF8D3C1289CDEE3BAFACABCD2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BBF744CA888F72233A4142EDB06432D /* Build configuration list for PBXNativeTarget "Pods-PhotoCardDiaryApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44771DFAA843CDB7FF94E4B55E143365 /* Debug */,
+				15D959CF4B5B1542CCDBD13F9EB84C7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7CD37D5D2815EBADE2D81D70A7B116F /* Build configuration list for PBXNativeTarget "VerticalCardSwiper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0011D44371BF64683E9B6669919A7253 /* Debug */,
+				744E3D47ECE12042F61A0E68D3973708 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

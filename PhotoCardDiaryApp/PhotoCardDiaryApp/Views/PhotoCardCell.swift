@@ -17,7 +17,6 @@ final class PhotoCardCell: CardCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .blue
         return imageView
     }()
     
@@ -47,7 +46,7 @@ final class PhotoCardCell: CardCell {
         return label
     }()
     
-    var photoCarData: PhotoCardData? {
+    var photoCardData: PhotoCardData? {
         didSet {
             configureUIwithData()
         }
@@ -64,6 +63,11 @@ final class PhotoCardCell: CardCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        photoImageView.image = nil
+    }
+    
     // MARK: - Set UI Method
     
     private func setupUI() {
@@ -78,8 +82,8 @@ final class PhotoCardCell: CardCell {
     private func setPhotoImageViewConstraint() {
         self.addSubview(photoImageView)
         NSLayoutConstraint.activate ([
-            photoImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            photoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            photoImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            photoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             photoImageView.topAnchor.constraint(equalTo: self.topAnchor),
             photoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
@@ -112,6 +116,9 @@ final class PhotoCardCell: CardCell {
     }
     
     private func configureUIwithData() {
-        
+        titleLabel.text = photoCardData?.title
+        dateLabel.text = photoCardData?.dateString
+        guard let data = photoCardData?.image else { return }
+        photoImageView.image = UIImage(data: data)
     }
 }

@@ -8,16 +8,23 @@
 import UIKit
 import VerticalCardSwiper
 
-final class RandomViewController: UIViewController {
+class RandomViewController: UIViewController {
     
     // MARK: - Property
-
+    let photoManager = CoreDataManager.shared
     private lazy var photoCardCollectioView = VerticalCardSwiper()
+
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setPhotoCardColloctioView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        photoCardCollectioView.reloadData()
     }
 }
 
@@ -43,6 +50,10 @@ extension RandomViewController {
             PhotoCardCell.self,
             forCellWithReuseIdentifier: "PhotoCardCell"
         )
+        photoCardCollectioView.register(
+            EmptyCell.self,
+            forCellWithReuseIdentifier: "EmptyCell"
+        )
     }
 }
 
@@ -52,22 +63,36 @@ extension RandomViewController: VerticalCardSwiperDatasource {
     func numberOfCards(
         verticalCardSwiperView: VerticalCardSwiperView
     ) -> Int {
-        return 10
+        print("asd", photoManager.getPhotoListFromCoreData().count)
+        if photoManager.getPhotoListFromCoreData().count == 0 {
+            return 1
+        } else {
+            return photoManager.getPhotoListFromCoreData().count
+        }
     }
     
     func cardForItemAt(
         verticalCardSwiperView: VerticalCardSwiperView,
         cardForItemAt index: Int
     ) -> CardCell {
-        guard let cell = verticalCardSwiperView.dequeueReusableCell(
-            withReuseIdentifier: "PhotoCardCell",
-            for: index
-        ) as? PhotoCardCell else {
-            return CardCell()
+        if photoManager.getPhotoListFromCoreData().count == 0 {
+            guard let cell = verticalCardSwiperView.dequeueReusableCell(
+                withReuseIdentifier: "EmptyCell",
+                for: index
+            ) as? EmptyCell else {
+                return CardCell()
+            }
+            return cell
+        } else {
+            guard let cell = verticalCardSwiperView.dequeueReusableCell(
+                withReuseIdentifier: "PhotoCardCell",
+                for: index
+            ) as? PhotoCardCell else {
+                return CardCell()
+            }
+            let photoData = photoManager.getPhotoListFromCoreData()
+            cell.photoCardData = photoData[index]
+            return cell
         }
-
-        return cell
     }
-    
-
 }

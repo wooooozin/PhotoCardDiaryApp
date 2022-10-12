@@ -66,7 +66,7 @@ final class CoreDataManager {
         completion()
     }
     
-    func deleteToDo(data: PhotoCardData, completion: @escaping () -> Void) {
+    func deletePhotoCardData(data: PhotoCardData, completion: @escaping () -> Void) {
         guard let date = data.date else {
             completion()
             return
@@ -99,7 +99,7 @@ final class CoreDataManager {
         }
     }
     
-    func updateToDo(newPhotoData: PhotoCardData, completion: @escaping () -> Void) {
+    func updatePhotoCardData(newPhotoData: PhotoCardData, completion: @escaping () -> Void) {
         guard let date = newPhotoData.date else {
             completion()
             return

@@ -37,9 +37,9 @@ final class WriteView: UIView {
         return label
     }()
     
-    let mainImageVIew: UIImageView = {
+    let mainImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
         imageView.image = UIImage(systemName: "photo")
@@ -61,7 +61,7 @@ final class WriteView: UIView {
         let tv = UITextView()
         tv.textColor = .lightGray
         tv.isScrollEnabled = true
-        tv.text = "텍스트를 여기에 입력하세요."
+        tv.text = "당신의 순간을 기록해주세요."
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
@@ -90,6 +90,7 @@ final class WriteView: UIView {
         super.init(frame: frame)
         self.backgroundColor = .white
         setupUI()
+        memoTextView.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -121,7 +122,7 @@ final class WriteView: UIView {
     
     private func setBottomStackView() {
         self.addSubview(bottomStackView)
-        bottomStackView.addArrangedSubview(mainImageVIew)
+        bottomStackView.addArrangedSubview(mainImageView)
         bottomStackView.addArrangedSubview(titleTextField)
         bottomStackView.addArrangedSubview(memoTextView)
         
@@ -133,9 +134,25 @@ final class WriteView: UIView {
         ])
         
         NSLayoutConstraint.activate([
-            mainImageVIew.heightAnchor.constraint(equalToConstant: 200),
+            mainImageView.heightAnchor.constraint(equalToConstant: 200),
             titleTextField.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
+}
+
+extension WriteView: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "당신의 순간을 기록해주세요." {
+            textView.text = nil
+            textView.textColor = .black
+        }
+    }
     
+    // 입력이 끝났을때
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            textView.text = "당신의 순간을 기록해주세요."
+            textView.textColor = .lightGray
+        }
+    }
 }

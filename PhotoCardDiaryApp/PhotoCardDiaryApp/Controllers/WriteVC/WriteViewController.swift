@@ -92,6 +92,7 @@ extension WriteViewController: UIImagePickerControllerDelegate & UINavigationCon
         }
         
         self.writeView.mainImageView.image = newImage
+        self.writeView.addButton.isEnabled = true
         picker.dismiss(animated: true, completion: nil)
     }
 }

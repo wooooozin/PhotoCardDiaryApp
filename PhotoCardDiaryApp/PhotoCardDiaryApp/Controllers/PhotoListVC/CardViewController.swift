@@ -8,7 +8,7 @@
 import UIKit
 import VerticalCardSwiper
 
-class RandomViewController: UIViewController {
+class CardViewController: UIViewController {
     
     // MARK: - Property
     let photoManager = CoreDataManager.shared
@@ -29,7 +29,7 @@ class RandomViewController: UIViewController {
 }
 
 // MARK: - Mehtod
-extension RandomViewController {
+extension CardViewController {
     private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(photoCardCollectioView)
@@ -55,11 +55,15 @@ extension RandomViewController {
             forCellWithReuseIdentifier: "EmptyCell"
         )
     }
+    
+    private func setButtonAction() {
+        
+    }
 }
 
 // MARK: - VerticalCardSwiperDatasource
 
-extension RandomViewController: VerticalCardSwiperDatasource {
+extension CardViewController: VerticalCardSwiperDatasource {
     func numberOfCards(
         verticalCardSwiperView: VerticalCardSwiperView
     ) -> Int {

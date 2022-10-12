@@ -23,6 +23,7 @@ final class WriteView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("완료", for: .normal)
         button.tintColor = .black
+        button.isEnabled = false
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -39,7 +40,7 @@ final class WriteView: UIView {
     
     let mainImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
         imageView.image = UIImage(systemName: "photo")

@@ -15,7 +15,8 @@ final class PhotoCardCell: CardCell {
 
     private let photoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
+        imageView.backgroundColor = .white
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -73,7 +74,7 @@ final class PhotoCardCell: CardCell {
     private func setupUI() {
         self.photoImageView.clipsToBounds = true
         self.photoImageView.layer.cornerRadius = 8
-        
+
         setPhotoImageViewConstraint()
         setLikeButtonConstraint()
         setLabelConstraint()

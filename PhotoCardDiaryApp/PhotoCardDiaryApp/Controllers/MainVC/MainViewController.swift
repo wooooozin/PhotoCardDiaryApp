@@ -12,18 +12,18 @@ final class MainViewController: UIViewController {
     // MARK: - Property
     
     private let segmentedControl: UISegmentedControl = {
-        let segmentedControl = UnderlineSegmentedControl(items: ["추억", "최신"])
+        let segmentedControl = UnderlineSegmentedControl(items: ["최신", "추억"])
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         return segmentedControl
     }()
     
     private let randomVC: UIViewController = {
-        let vc = RandomViewController()
+        let vc = CardViewController()
         return vc
     }()
     
     private let latestVC: UIViewController = {
-        let vc = LatestViewController()
+        let vc = CollectViewController()
         return vc
     }()
     

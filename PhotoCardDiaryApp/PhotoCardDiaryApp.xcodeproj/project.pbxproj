@@ -17,6 +17,8 @@
 		3670DB4F28F6FD070087812E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB4E28F6FD070087812E /* DetailViewController.swift */; };
 		3670DB5128F7131D0087812E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB5028F7131D0087812E /* DetailView.swift */; };
 		3670DB5628F73B9B0087812E /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB5528F73B9B0087812E /* EditViewController.swift */; };
+		36B6139828F7ABFF0037557E /* CollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6139728F7ABFF0037557E /* CollectCell.swift */; };
+		36B6139A28F7BB6E0037557E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6139928F7BB6E0037557E /* Constants.swift */; };
 		36DD6ACE28F652E90071137F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6ACD28F652E90071137F /* AppDelegate.swift */; };
 		36DD6AD028F652E90071137F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6ACF28F652E90071137F /* SceneDelegate.swift */; };
 		36DD6AD828F652E90071137F /* PhotoCardDiaryApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6AD628F652E90071137F /* PhotoCardDiaryApp.xcdatamodeld */; };
@@ -42,6 +44,8 @@
 		3670DB4E28F6FD070087812E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3670DB5028F7131D0087812E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3670DB5528F73B9B0087812E /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		36B6139728F7ABFF0037557E /* CollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectCell.swift; sourceTree = "<group>"; };
+		36B6139928F7BB6E0037557E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		36DD6ACA28F652E90071137F /* PhotoCardDiaryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoCardDiaryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36DD6ACD28F652E90071137F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36DD6ACF28F652E90071137F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 				3670DB4B28F6EE570087812E /* EmptyCell.swift */,
 				3670DB4928F6A5B70087812E /* WriteView.swift */,
 				3670DB5028F7131D0087812E /* DetailView.swift */,
+				36B6139728F7ABFF0037557E /* CollectCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -163,6 +168,7 @@
 		36DD6AE728F6533D0071137F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				36B6139928F7BB6E0037557E /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -317,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3670DB4328F6837A0087812E /* PhotoCardData+CoreDataClass.swift in Sources */,
+				36B6139A28F7BB6E0037557E /* Constants.swift in Sources */,
 				36DD6AD828F652E90071137F /* PhotoCardDiaryApp.xcdatamodeld in Sources */,
 				36DD6ACE28F652E90071137F /* AppDelegate.swift in Sources */,
 				3670DB4C28F6EE570087812E /* EmptyCell.swift in Sources */,
@@ -328,6 +335,7 @@
 				36DD6AD028F652E90071137F /* SceneDelegate.swift in Sources */,
 				3670DB5128F7131D0087812E /* DetailView.swift in Sources */,
 				36DD6AEF28F65F2F0071137F /* CardViewController.swift in Sources */,
+				36B6139828F7ABFF0037557E /* CollectCell.swift in Sources */,
 				36DD6AE928F6534D0071137F /* MainViewController.swift in Sources */,
 				3670DB4A28F6A5B70087812E /* WriteView.swift in Sources */,
 				3670DB4F28F6FD070087812E /* DetailViewController.swift in Sources */,

@@ -12,14 +12,12 @@ class CardViewController: UIViewController {
     
     // MARK: - Property
     let photoManager = CoreDataManager.shared
-    private lazy var photoCardCollectioView = VerticalCardSwiper()
+    private let photoCardCollectioView = VerticalCardSwiper()
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = true
-        
         setupUI()
         setPhotoCardColloctioView()
     }

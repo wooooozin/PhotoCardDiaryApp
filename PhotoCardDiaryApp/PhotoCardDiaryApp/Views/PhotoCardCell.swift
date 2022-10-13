@@ -12,8 +12,6 @@ import VerticalCardSwiper
 final class PhotoCardCell: CardCell {
     
     // MARK: - Property
-    var touchUpImageViewPressed: (PhotoCardCell) -> Void = { (sender) in }
-    var longTouchUpImageViewPressed: () -> Void = { }
     
     lazy var photoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -65,6 +63,9 @@ final class PhotoCardCell: CardCell {
             configureUIwithData()
         }
     }
+    
+    var touchUpImageViewPressed: (PhotoCardCell) -> Void = { (sender) in }
+    var longTouchUpImageViewPressed: () -> Void = { }
     
     // MARK: - init
     

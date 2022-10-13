@@ -38,10 +38,22 @@ extension CardViewController {
         photoCardCollectioView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            photoCardCollectioView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            photoCardCollectioView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            photoCardCollectioView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
-            photoCardCollectioView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+            photoCardCollectioView.leadingAnchor.constraint(
+                equalTo: view.leadingAnchor,
+                constant: 0
+            ),
+            photoCardCollectioView.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor,
+                constant: 0
+            ),
+            photoCardCollectioView.topAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.topAnchor,
+                constant: 0
+            ),
+            photoCardCollectioView.bottomAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                constant: 0
+            )
         ])
     }
     

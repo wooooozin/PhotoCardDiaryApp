@@ -88,6 +88,8 @@ final class WriteView: UIView {
         return sv
     }()
     
+    // MARK: - init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
@@ -98,6 +100,9 @@ final class WriteView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Method
+
     
     private func setupUI() {
         setTopStackView()
@@ -111,7 +116,10 @@ final class WriteView: UIView {
         topStackView.addArrangedSubview(addButton)
         
         NSLayoutConstraint.activate([
-            topStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 0),
+            topStackView.topAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.topAnchor,
+                constant: 0
+            ),
             topStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             topStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
         ])
@@ -132,7 +140,10 @@ final class WriteView: UIView {
             bottomStackView.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 10),
             bottomStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             bottomStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            bottomStackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+            bottomStackView.bottomAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.bottomAnchor,
+                constant: 0
+            )
         ])
         
         NSLayoutConstraint.activate([
@@ -142,6 +153,8 @@ final class WriteView: UIView {
     }
 }
 
+// MARK: - UITextViewDelegate
+
 extension WriteView: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == "당신의 순간을 기록해주세요." {
@@ -150,7 +163,6 @@ extension WriteView: UITextViewDelegate {
         }
     }
     
-    // 입력이 끝났을때
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             textView.text = "당신의 순간을 기록해주세요."

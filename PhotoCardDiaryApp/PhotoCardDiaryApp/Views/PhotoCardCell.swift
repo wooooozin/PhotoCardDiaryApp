@@ -21,8 +21,14 @@ final class PhotoCardCell: CardCell {
         imageView.backgroundColor = .white
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
-        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touchUpImageView)))
-        imageView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(longTouchUpImageView)))
+        imageView.addGestureRecognizer(UITapGestureRecognizer(
+            target: self,
+            action: #selector(touchUpImageView)
+        ))
+        imageView.addGestureRecognizer(UILongPressGestureRecognizer(
+            target: self,
+            action: #selector(longTouchUpImageView)
+        ))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -101,7 +107,10 @@ final class PhotoCardCell: CardCell {
         self.addSubview(wetherImage)
         NSLayoutConstraint.activate([
             wetherImage.topAnchor.constraint(equalTo: photoImageView.topAnchor, constant: 20),
-            wetherImage.trailingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: -20),
+            wetherImage.trailingAnchor.constraint(
+                equalTo: photoImageView.trailingAnchor,
+                constant: -20
+            ),
             wetherImage.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
@@ -111,13 +120,28 @@ final class PhotoCardCell: CardCell {
         self.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
-            dateLabel.leadingAnchor.constraint(equalTo: photoImageView.leadingAnchor, constant: 20),
-            dateLabel.trailingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: -20),
-            dateLabel.bottomAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: -40),
+            dateLabel.leadingAnchor.constraint(
+                equalTo: photoImageView.leadingAnchor,
+                constant: 20
+            ),
+            dateLabel.trailingAnchor.constraint(
+                equalTo: photoImageView.trailingAnchor,
+                constant: -20)
+            ,
+            dateLabel.bottomAnchor.constraint(
+                equalTo: photoImageView.bottomAnchor,
+                constant: -40)
+            ,
             dateLabel.heightAnchor.constraint(equalToConstant: 50),
             
-            titleLabel.leadingAnchor.constraint(equalTo: photoImageView.leadingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: -20),
+            titleLabel.leadingAnchor.constraint(
+                equalTo: photoImageView.leadingAnchor,
+                constant: 20)
+            ,
+            titleLabel.trailingAnchor.constraint(
+                equalTo: photoImageView.trailingAnchor,
+                constant: -20
+            ),
             titleLabel.bottomAnchor.constraint(equalTo: dateLabel.topAnchor, constant: 5),
             titleLabel.heightAnchor.constraint(equalToConstant: 200)
         ])

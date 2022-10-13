@@ -35,8 +35,16 @@ class WriteViewController: UIViewController {
 extension WriteViewController {
     
     private func setupButtonAction() {
-        writeView.closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
-        writeView.addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+        writeView.closeButton.addTarget(
+            self,
+            action: #selector(closeButtonTapped),
+            for: .touchUpInside
+        )
+        writeView.addButton.addTarget(
+            self,
+            action: #selector(addButtonTapped),
+            for: .touchUpInside
+        )
     }
     
     private func setupTapGestures() {

@@ -64,7 +64,9 @@ final class MainViewController: UIViewController {
     var currentPage: Int = 0 {
         didSet {
             print(oldValue, self.currentPage)
-            let direction: UIPageViewController.NavigationDirection = oldValue <= self.currentPage ? .forward : .reverse
+            let direction: UIPageViewController.NavigationDirection =
+            oldValue <= self.currentPage ? .forward : .reverse
+            
             self.pageViewController.setViewControllers(
                 [dataViewControllers[self.currentPage]],
                 direction: direction,
@@ -136,7 +138,11 @@ extension MainViewController {
             ],
             for: .selected
         )
-        segmentedControl.addTarget(self, action: #selector(changeValue(control:)), for: .valueChanged)
+        segmentedControl.addTarget(
+            self,
+            action: #selector(changeValue(control:)),
+            for: .valueChanged
+        )
         segmentedControl.selectedSegmentIndex = 0
         changeValue(control: self.segmentedControl)
     }

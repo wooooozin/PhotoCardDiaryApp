@@ -35,7 +35,11 @@ final class EditViewController: UIViewController {
 extension EditViewController {
     
     private func setupButtonAction() {
-        writeView.closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        writeView.closeButton.addTarget(
+            self,
+            action: #selector(closeButtonTapped),
+            for: .touchUpInside
+        )
         writeView.addButton.isEnabled = true
         writeView.addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
     }

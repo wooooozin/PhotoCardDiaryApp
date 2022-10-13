@@ -38,13 +38,20 @@ final class UnderlineSegmentedControl: UISegmentedControl {
     self.setBackgroundImage(image, for: .selected, barMetrics: .default)
     self.setBackgroundImage(image, for: .highlighted, barMetrics: .default)
     
-    self.setDividerImage(image, forLeftSegmentState: .selected, rightSegmentState: .normal, barMetrics: .default)
+    self.setDividerImage(
+        image,
+        forLeftSegmentState: .selected,
+        rightSegmentState: .normal,
+        barMetrics: .default
+    )
   }
   
   override func layoutSubviews() {
     super.layoutSubviews()
     
-    let underlineFinalXPosition = (self.bounds.width / CGFloat(self.numberOfSegments)) * CGFloat(self.selectedSegmentIndex)
+    let underlineFinalXPosition = (
+        self.bounds.width / CGFloat(self.numberOfSegments)) * CGFloat(self.selectedSegmentIndex
+        )
     UIView.animate(
       withDuration: 0.1,
       animations: {

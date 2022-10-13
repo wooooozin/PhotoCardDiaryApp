@@ -10,6 +10,8 @@ import VerticalCardSwiper
 
 final class EmptyCell: CardCell {
     
+    // MARK: - Property
+
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black

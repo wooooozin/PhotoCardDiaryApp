@@ -8,6 +8,9 @@
 import UIKit
 
 final class DetailView: UIView {
+    
+    // MARK: - Property
+    
     lazy var photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -52,6 +55,8 @@ final class DetailView: UIView {
         return tv
     }()
     
+    // MARK: - init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
@@ -62,6 +67,9 @@ final class DetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    // MARK: - Method
+
     private func setupUI() {
         setImageViewConstraint()
         setCloseButtonConstraint()
@@ -85,7 +93,10 @@ final class DetailView: UIView {
         self.addSubview(closeButton)
         
         NSLayoutConstraint.activate([
-            closeButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 5),
+            closeButton.topAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.topAnchor,
+                constant: 5
+            ),
             closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
             closeButton.heightAnchor.constraint(equalToConstant: 40)
         ])
@@ -95,7 +106,10 @@ final class DetailView: UIView {
         self.addSubview(dateLabel)
         
         NSLayoutConstraint.activate([
-            dateLabel.trailingAnchor.constraint(equalTo: self.photoImageView.trailingAnchor, constant: -10),
+            dateLabel.trailingAnchor.constraint(
+                equalTo: self.photoImageView.trailingAnchor,
+                constant: -10
+            ),
             dateLabel.bottomAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: -10),
             dateLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
@@ -105,7 +119,10 @@ final class DetailView: UIView {
         self.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
-            titleLabel.trailingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: -10),
+            titleLabel.trailingAnchor.constraint(
+                equalTo: photoImageView.trailingAnchor,
+                constant: -10
+            ),
             titleLabel.bottomAnchor.constraint(equalTo: dateLabel.topAnchor, constant: 10)
         ])
     }
@@ -114,10 +131,16 @@ final class DetailView: UIView {
         self.addSubview(memoTextView)
         
         NSLayoutConstraint.activate([
-            memoTextView.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 0),
+            memoTextView.topAnchor.constraint(
+                equalTo: photoImageView.bottomAnchor,
+                constant: 0
+            ),
             memoTextView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
             memoTextView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-            memoTextView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+            memoTextView.bottomAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.bottomAnchor,
+                constant: 0
+            )
         ])
     }
 }

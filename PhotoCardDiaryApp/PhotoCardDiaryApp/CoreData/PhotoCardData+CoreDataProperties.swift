@@ -20,6 +20,7 @@ extension PhotoCardData {
     @NSManaged public var date: Date?
     @NSManaged public var memoText: String?
     @NSManaged public var image: Data?
+    @NSManaged public var weather: Data?
     
     var dateString: String? {
         let myFormatter = DateFormatter()

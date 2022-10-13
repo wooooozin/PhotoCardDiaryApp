@@ -141,7 +141,7 @@
 			children = (
 				36DD6AE728F6533D0071137F /* Helpers */,
 				3670DB5428F71CD10087812E /* Network */,
-				36DD6AE628F653370071137F /* Models */,
+				36DD6AE628F653370071137F /* CoreData */,
 				36DD6AE528F653320071137F /* Views */,
 				36DD6AE428F6532B0071137F /* Controllers */,
 				36DD6ACD28F652E90071137F /* AppDelegate.swift */,
@@ -180,14 +180,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		36DD6AE628F653370071137F /* Models */ = {
+		36DD6AE628F653370071137F /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				3670DB4128F6837A0087812E /* PhotoCardData+CoreDataClass.swift */,
 				3670DB4028F6837A0087812E /* PhotoCardData+CoreDataProperties.swift */,
 				3670DB4428F685830087812E /* CoreDataManager.swift */,
 			);
-			path = Models;
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		36DD6AE728F6533D0071137F /* Helpers */ = {

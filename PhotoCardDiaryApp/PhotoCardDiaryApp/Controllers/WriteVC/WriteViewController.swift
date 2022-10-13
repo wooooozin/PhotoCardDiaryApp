@@ -7,6 +7,7 @@
 
 import UIKit
 import PhotosUI
+import CoreLocation
 
 class WriteViewController: UIViewController {
     
@@ -64,7 +65,8 @@ extension WriteViewController {
         let memoText = writeView.memoTextView.text
         let title = writeView.titleTextField.text
         let image = writeView.mainImageView.image?.pngData()
-        photoManager.savePhotoCardData(title: title, memoText: memoText, image: image) {
+        let weather = UIImage().pngData()
+        photoManager.savePhotoCardData(title: title, memoText: memoText, image: image, weather: weather) {
             print("저장완료")
             self.dismiss(animated: true) {
                 self.navigationController?.popToRootViewController(animated: true)

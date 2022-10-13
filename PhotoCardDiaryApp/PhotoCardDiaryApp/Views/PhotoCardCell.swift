@@ -31,7 +31,7 @@ final class PhotoCardCell: CardCell {
         return imageView
     }()
     
-    let wetherImage: UIImageView = {
+    let weatherImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(systemName: "sun.min")
@@ -53,7 +53,7 @@ final class PhotoCardCell: CardCell {
         let label = UILabel()
         label.textColor = .white
         label.numberOfLines = 3
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont.systemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -90,8 +90,8 @@ final class PhotoCardCell: CardCell {
         self.photoImageView.layer.cornerRadius = 8
         
         setPhotoImageViewConstraint()
-        setWeatherImageConstraint()
         setLabelConstraint()
+        setWeatherImageConstraint()
     }
     
     private func setPhotoImageViewConstraint() {
@@ -105,14 +105,12 @@ final class PhotoCardCell: CardCell {
     }
     
     private func setWeatherImageConstraint() {
-        self.addSubview(wetherImage)
+        self.addSubview(weatherImage)
         NSLayoutConstraint.activate([
-            wetherImage.topAnchor.constraint(equalTo: photoImageView.topAnchor, constant: 20),
-            wetherImage.trailingAnchor.constraint(
-                equalTo: photoImageView.trailingAnchor,
-                constant: -20
-            ),
-            wetherImage.heightAnchor.constraint(equalToConstant: 50)
+            weatherImage.leadingAnchor.constraint(equalTo: dateLabel.trailingAnchor, constant: 5),
+            weatherImage.centerYAnchor.constraint(equalTo: dateLabel.centerYAnchor),
+            weatherImage.heightAnchor.constraint(equalToConstant: 25),
+            weatherImage.widthAnchor.constraint(equalToConstant: 25)
         ])
     }
     
@@ -125,15 +123,12 @@ final class PhotoCardCell: CardCell {
                 equalTo: photoImageView.leadingAnchor,
                 constant: 20
             ),
-            dateLabel.trailingAnchor.constraint(
-                equalTo: photoImageView.trailingAnchor,
-                constant: -20)
-            ,
             dateLabel.bottomAnchor.constraint(
                 equalTo: photoImageView.bottomAnchor,
                 constant: -40)
             ,
             dateLabel.heightAnchor.constraint(equalToConstant: 50),
+            dateLabel.widthAnchor.constraint(equalToConstant: 90),
             
             titleLabel.leadingAnchor.constraint(
                 equalTo: photoImageView.leadingAnchor,

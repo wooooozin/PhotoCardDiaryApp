@@ -52,6 +52,7 @@ final class CoreDataManager {
         title: String?,
         memoText: String?,
         image: Data?,
+        weather: Data?,
         completion: @escaping () -> Void
     ) {
         if let context = context {
@@ -64,6 +65,7 @@ final class CoreDataManager {
                     photoCardData.memoText = memoText
                     photoCardData.date = Date()
                     photoCardData.image = image
+                    photoCardData.weather = weather
                     
                     if context.hasChanges {
                         do {

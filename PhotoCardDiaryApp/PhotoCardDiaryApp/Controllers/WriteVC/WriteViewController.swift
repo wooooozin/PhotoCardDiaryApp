@@ -16,7 +16,10 @@ class WriteViewController: UIViewController {
     private let writeView = WriteView()
     var photoData: PhotoCardData?
     let photoManager = CoreDataManager.shared
-    
+    let weatherMager = NetworkManager.shared
+    let locationManager = CLLocationManager()
+    var weatherImageInt = 0
+    var weatherImageString = ""
     
     // MARK: - LifeCycle
     
@@ -28,6 +31,7 @@ class WriteViewController: UIViewController {
         super.viewDidLoad()
         setupButtonAction()
         setupTapGestures()
+        setupLocation()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -52,9 +56,36 @@ extension WriteViewController {
         )
     }
     
+    private func setupLocation() {
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+    }
+    
     private func setupTapGestures() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpImageView))
         writeView.mainImageView.addGestureRecognizer(tapGesture)
+    }
+    
+    private func weatherIntString(_ weatherId: Int) -> String {
+        switch weatherId {
+        case 200...232:
+            return "cloud.bolt"
+        case 300...321:
+            return "cloud.drizzle"
+        case 500...531:
+            return "cloud.rain"
+        case 600...622:
+            return "cloud.snow"
+        case 701...781:
+            return "cloud.fog"
+        case 800:
+            return "sun.max"
+        case 801...804:
+            return "cloud.bolt"
+        default:
+            return "sun.min"
+        }
     }
     
     @objc private func closeButtonTapped() {
@@ -62,10 +93,15 @@ extension WriteViewController {
     }
     
     @objc private func addButtonTapped() {
+        weatherImageString = weatherIntString(weatherImageInt)
         let memoText = writeView.memoTextView.text
         let title = writeView.titleTextField.text
         let image = writeView.mainImageView.image?.pngData()
-        let weather = UIImage().pngData()
+        var weather = UIImage().pngData()
+        guard let safeWeather = UIImage(systemName: weatherImageString)?.withTintColor(.white).pngData() else {
+            return weather = UIImage(systemName: "sun.min")?.withTintColor(.white).pngData()
+        }
+        weather = safeWeather
         photoManager.savePhotoCardData(title: title, memoText: memoText, image: image, weather: weather) {
             print("저장완료")
             self.dismiss(animated: true) {
@@ -103,3 +139,28 @@ extension WriteViewController: UIImagePickerControllerDelegate & UINavigationCon
         picker.dismiss(animated: true, completion: nil)
     }
 }
+
+// MARK: - CLLocationManagerDelegate
+
+extension WriteViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            locationManager.stopUpdatingLocation()
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            weatherMager.fetchWeather(latitude: lat, longitude: lon) { result in
+                switch result {
+                case .success(let result):
+                    self.weatherImageInt = result.weather[0].id
+                    print(self.weatherImageInt)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+}
+

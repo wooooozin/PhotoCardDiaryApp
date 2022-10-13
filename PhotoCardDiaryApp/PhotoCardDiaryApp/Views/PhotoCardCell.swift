@@ -34,7 +34,6 @@ final class PhotoCardCell: CardCell {
     let weatherImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(systemName: "sun.min")
         imageView.tintColor = .white
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -109,8 +108,8 @@ final class PhotoCardCell: CardCell {
         NSLayoutConstraint.activate([
             weatherImage.leadingAnchor.constraint(equalTo: dateLabel.trailingAnchor, constant: 5),
             weatherImage.centerYAnchor.constraint(equalTo: dateLabel.centerYAnchor),
-            weatherImage.heightAnchor.constraint(equalToConstant: 25),
-            weatherImage.widthAnchor.constraint(equalToConstant: 25)
+            weatherImage.heightAnchor.constraint(equalToConstant: 20),
+            weatherImage.widthAnchor.constraint(equalToConstant: 20)
         ])
     }
     
@@ -146,8 +145,10 @@ final class PhotoCardCell: CardCell {
     private func configureUIwithData() {
         titleLabel.text = photoCardData?.title
         dateLabel.text = photoCardData?.dateString
-        guard let data = photoCardData?.image else { return }
+        guard let data = photoCardData?.image,
+              let weatherData = photoCardData?.weather else { return }
         photoImageView.image = UIImage(data: data)
+        weatherImage.image = UIImage(data: weatherData)
     }
     
     @objc func touchUpImageView() {

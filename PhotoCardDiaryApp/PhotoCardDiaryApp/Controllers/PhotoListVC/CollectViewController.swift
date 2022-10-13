@@ -15,7 +15,7 @@ final class CollectViewController: UIViewController {
     let photoManager = CoreDataManager.shared
     private let collectCollectionView: UICollectionView = {
         let collectionCellWidth =
-        (UIScreen.main.bounds.width - 80 * (CVCell.cellColumns - 1)) / CVCell.cellColumns
+        (UIScreen.main.bounds.width - 50 * (CVCell.cellColumns - 1)) / CVCell.cellColumns
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
         flowLayout.itemSize = CGSize(width: collectionCellWidth, height: collectionCellWidth * 1.5)

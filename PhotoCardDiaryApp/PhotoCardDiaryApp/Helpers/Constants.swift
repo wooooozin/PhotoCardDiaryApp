@@ -9,7 +9,7 @@ import Foundation
 
 
 public struct CVCell {
-    static let spacingWitdh: CGFloat = 20
+    static let spacingWitdh: CGFloat = 10
     static let cellColumns: CGFloat = 2
     private init() {}
 }

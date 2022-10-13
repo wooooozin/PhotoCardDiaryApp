@@ -8,5 +8,6 @@ target 'PhotoCardDiaryApp' do
   # Pods for PhotoCardDiaryApp
 	
 	pod 'VerticalCardSwiper'
+	pod 'FSCalendar'
 
 end

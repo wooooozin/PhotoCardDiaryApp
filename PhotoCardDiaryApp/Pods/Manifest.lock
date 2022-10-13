@@ -1,16 +1,20 @@
 PODS:
+  - FSCalendar (2.8.4)
   - VerticalCardSwiper (2.3.1)
 
 DEPENDENCIES:
+  - FSCalendar
   - VerticalCardSwiper
 
 SPEC REPOS:
   trunk:
+    - FSCalendar
     - VerticalCardSwiper
 
 SPEC CHECKSUMS:
+  FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   VerticalCardSwiper: 68df635b354500f86934ea044ade37a264c044c6
 
-PODFILE CHECKSUM: 34f985d69ab65b9220cb2403ba5423a77474054f
+PODFILE CHECKSUM: 52480f48d133887fa970989d2f4fe16fc12a8db6
 
 COCOAPODS: 1.11.3

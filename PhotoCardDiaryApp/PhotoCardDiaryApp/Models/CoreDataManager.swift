@@ -16,6 +16,20 @@ final class CoreDataManager {
     lazy var context = appDelegate?.persistentContainer.viewContext
     let modelName: String = "PhotoCardData"
     
+    func searchPhotoListFromCoreData(text: String) -> [PhotoCardData] {
+        var photoList: [PhotoCardData] = []
+        let query = text
+        let request: NSFetchRequest<PhotoCardData> = PhotoCardData.fetchRequest()
+        request.predicate = NSPredicate(format: "memoText CONTAINS %@", query)
+        do{
+            let objects = try context?.fetch(request)
+            photoList = objects ?? []
+        } catch {
+            print(error)
+        }
+        return photoList
+    }
+    
     func getPhotoListFromCoreData() -> [PhotoCardData] {
         var photoList: [PhotoCardData] = []
         if let context = context {

@@ -114,6 +114,32 @@ extension CollectViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             cell.photoCardData = photoManager.getPhotoListFromCoreData()[indexPath.row]
+            cell.touchUpImageViewPressed = { [weak self] (senderCell)  in
+                let vc = CardViewDetailViewController()
+                vc.photoCardData = self?.photoManager.getPhotoListFromCoreData()[indexPath.row]
+                vc.modalPresentationStyle = .fullScreen
+                self?.show(vc, sender: nil)
+            }
+            cell.longTouchUpImageViewPressed = {
+                let alert = UIAlertController()
+                let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
+                    self.photoManager.deletePhotoCardData(data: self.photoManager.getPhotoListFromCoreData()[indexPath.row]) {
+                        self.collectCollectionView.reloadData()
+                        print("삭제 완료")
+                    }
+                }
+                let updateAction = UIAlertAction(title: "수정", style: .default) { _ in
+                    let vc = EditViewController()
+                    vc.photoData = self.photoManager.getPhotoListFromCoreData()[indexPath.row]
+                    vc.modalPresentationStyle = .fullScreen
+                    self.show(vc, sender: nil)
+                }
+                let cancelAcion = UIAlertAction(title: "닫기", style: .cancel)
+                alert.addAction(updateAction)
+                alert.addAction(deleteAction)
+                alert.addAction(cancelAcion)
+                self.present(alert, animated: true)
+            }
             return cell
         }
     }

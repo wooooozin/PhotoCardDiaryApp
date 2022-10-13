@@ -11,32 +11,33 @@ class ResultCell: UITableViewCell {
     
     let memoLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .systemBlue
         label.textColor = .black
         label.numberOfLines = 2
         label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "memoLabel"
         return label
     }()
     
     let dateLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .blue
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 10, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "dateLabel"
         return label
     }()
     
     lazy var photoImageVIew: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .systemGray6
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
+    var photoCardData: PhotoCardData? {
+        didSet {
+            configureUIwithData()
+        }
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
@@ -86,7 +87,7 @@ class ResultCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             dateLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            dateLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            dateLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
             dateLabel.trailingAnchor.constraint(equalTo: photoImageVIew.leadingAnchor, constant: -20),
             dateLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
@@ -97,10 +98,18 @@ class ResultCell: UITableViewCell {
             
         NSLayoutConstraint.activate([
             memoLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 10),
-            memoLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            memoLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
             memoLabel.trailingAnchor.constraint(equalTo: photoImageVIew.leadingAnchor, constant: -20),
             memoLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
             ])
+    }
+    
+    private func configureUIwithData() {
+        dateLabel.text = photoCardData?.dateString
+        memoLabel.text = photoCardData?.memoText
+        guard let data = photoCardData?.image else { return }
+        photoImageVIew
+            .image = UIImage(data: data)
     }
 }
 

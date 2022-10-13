@@ -27,8 +27,8 @@ final class ResultViewController: UIViewController {
         searchBar.tintColor = .black
         searchBar.placeholder = " 검색"
         searchBar.sizeToFit()
+        searchBar.autocapitalizationType = .none
         searchBar.isTranslucent = false
-        searchBar.delegate = self
         return searchBar
     }()
     
@@ -48,12 +48,13 @@ final class ResultViewController: UIViewController {
         return sv
     }()
     
-    private var searchTerm: String?
+    private var searchData: [PhotoCardData] = []
     let photoManager = CoreDataManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        searchBar.delegate = self
     }
 }
 
@@ -121,7 +122,7 @@ extension ResultViewController {
 
 extension ResultViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return photoManager.getPhotoListFromCoreData().count
+        return searchData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -133,7 +134,7 @@ extension ResultViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.selectionStyle = .none
-        
+        cell.photoCardData = searchData[indexPath.row]
         return cell
     }
     
@@ -156,12 +157,22 @@ extension ResultViewController: UITableViewDelegate {
     ) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = CardViewDetailViewController()
+        vc.photoCardData = searchData[indexPath.row]
+        vc.modalPresentationStyle = .fullScreen
+        self.show(vc, sender: nil)
+    }
 }
 
 
 // MARK: - UISearchBarDelegate
 
 extension ResultViewController: UISearchBarDelegate {
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchData = photoManager.searchPhotoListFromCoreData(text: searchText)
+        resultTableView.reloadData()
+    }
 }
 

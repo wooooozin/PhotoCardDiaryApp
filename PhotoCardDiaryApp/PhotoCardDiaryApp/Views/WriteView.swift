@@ -62,6 +62,7 @@ final class WriteView: UIView {
     let memoTextView: UITextView = {
         let tv = UITextView()
         tv.textColor = .lightGray
+        tv.tintColor = .lightGray
         tv.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         tv.autocapitalizationType = .none
         tv.isScrollEnabled = true

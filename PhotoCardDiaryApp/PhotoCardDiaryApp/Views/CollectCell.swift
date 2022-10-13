@@ -11,11 +11,14 @@ final class CollectCell: UICollectionViewCell {
     
     // MARK: - Property
     
-    let mainImageView: UIImageView = {
+    lazy var mainImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageViewTapped)))
+        imageView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(imageViewLongTapped)))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -34,6 +37,9 @@ final class CollectCell: UICollectionViewCell {
             configureUIwithData()
         }
     }
+    
+    var touchUpImageViewPressed: (CollectCell) -> Void = { (sender) in }
+    var longTouchUpImageViewPressed: () -> Void = { }
     
     // MARK: - init
     
@@ -79,5 +85,13 @@ final class CollectCell: UICollectionViewCell {
         dateLabel.text = photoCardData?.dateString
         guard let data = photoCardData?.image else { return }
         mainImageView.image = UIImage(data: data)
+    }
+    
+    @objc private func imageViewTapped() {
+        touchUpImageViewPressed(self)
+    }
+    
+    @objc private func imageViewLongTapped() {
+        longTouchUpImageViewPressed()
     }
 }

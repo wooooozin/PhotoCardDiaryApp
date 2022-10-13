@@ -22,7 +22,15 @@ final class DetailView: UIView {
     lazy var closeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
-        button.tintColor = .white
+        button.tintColor = .black
+        button.backgroundColor = .white
+        button.clipsToBounds = true
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.masksToBounds = false
+        button.layer.shadowOffset = CGSize(width: 0, height: 4)
+        button.layer.shadowRadius = 5
+        button.layer.shadowOpacity = 0.3
+        button.layer.cornerRadius = 30
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -48,6 +56,7 @@ final class DetailView: UIView {
     let memoTextView: UITextView = {
         let tv = UITextView()
         tv.textColor = .lightGray
+        tv.tintColor = .lightGray
         tv.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         tv.isScrollEnabled = true
         tv.isEditable = false
@@ -72,10 +81,10 @@ final class DetailView: UIView {
 
     private func setupUI() {
         setImageViewConstraint()
-        setCloseButtonConstraint()
         setDateLabelConstraint()
         setTitleLabelConstraint()
         setMemoTextViewConstraint()
+        setCloseButtonConstraint()
     }
     
     private func setImageViewConstraint() {
@@ -93,12 +102,13 @@ final class DetailView: UIView {
         self.addSubview(closeButton)
         
         NSLayoutConstraint.activate([
-            closeButton.topAnchor.constraint(
-                equalTo: self.safeAreaLayoutGuide.topAnchor,
-                constant: 5
+            closeButton.bottomAnchor.constraint(
+                equalTo: memoTextView.bottomAnchor,
+                constant: -50
             ),
-            closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
-            closeButton.heightAnchor.constraint(equalToConstant: 40)
+            closeButton.trailingAnchor.constraint(equalTo: memoTextView.trailingAnchor, constant: -10),
+            closeButton.heightAnchor.constraint(equalToConstant: 60),
+            closeButton.widthAnchor.constraint(equalToConstant: 60)
         ])
     }
     

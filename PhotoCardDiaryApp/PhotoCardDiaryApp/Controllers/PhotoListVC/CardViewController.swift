@@ -124,8 +124,10 @@ extension CardViewController: VerticalCardSwiperDatasource {
                     vc.modalPresentationStyle = .fullScreen
                     self.show(vc, sender: nil)
                 }
+                let cancelAcion = UIAlertAction(title: "닫기", style: .cancel)
                 alert.addAction(updateAction)
                 alert.addAction(deleteAction)
+                alert.addAction(cancelAcion)
                 self.present(alert, animated: true)
             }
             return cell

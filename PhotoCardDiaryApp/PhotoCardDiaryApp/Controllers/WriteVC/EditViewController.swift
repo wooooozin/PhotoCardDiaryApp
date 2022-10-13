@@ -1,15 +1,14 @@
 //
-//  WriteViewController.swift
+//  EditViewController.swift
 //  PhotoCardDiaryApp
 //
-//  Created by 효우 on 2022/10/12.
+//  Created by 효우 on 2022/10/13.
 //
 
 import UIKit
-import PhotosUI
+import CoreData
 
-class WriteViewController: UIViewController {
-    
+final class EditViewController: UIViewController {
     // MARK: - Property
     
     private let writeView = WriteView()
@@ -27,15 +26,17 @@ class WriteViewController: UIViewController {
         super.viewDidLoad()
         setupButtonAction()
         setupTapGestures()
+        configureUIwithData()
     }
 }
 
 // MARK: - SetUI , Method
 
-extension WriteViewController {
+extension EditViewController {
     
     private func setupButtonAction() {
         writeView.closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        writeView.addButton.isEnabled = true
         writeView.addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
     }
     
@@ -44,17 +45,28 @@ extension WriteViewController {
         writeView.mainImageView.addGestureRecognizer(tapGesture)
     }
     
+    private func configureUIwithData() {
+        guard let data = photoData?.image else { return }
+        writeView.mainImageView.image = UIImage(data: data)
+        writeView.memoTextView.text = photoData?.memoText
+        writeView.titleTextField.text = photoData?.title
+    }
+    
     @objc private func closeButtonTapped() {
         self.dismiss(animated: true)
     }
     
     @objc private func addButtonTapped() {
-        let memoText = writeView.memoTextView.text
-        let title = writeView.titleTextField.text
-        let image = writeView.mainImageView.image?.pngData()
-        photoManager.savePhotoCardData(title: title, memoText: memoText, image: image) {
-            print("저장완료")
-            self.dismiss(animated: true)
+        if let photoData = self.photoData {
+            photoData.memoText = writeView.memoTextView.text
+            photoData.title = writeView.titleTextField.text
+            photoData.image = writeView.mainImageView.image?.pngData()
+            photoManager.updatePhotoCardData(newPhotoData: photoData) {
+                print("업데이트 완료")
+                self.dismiss(animated: true) {
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+            }
         }
     }
     
@@ -69,7 +81,7 @@ extension WriteViewController {
 
 // MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
 
-extension WriteViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+extension EditViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     func imagePickerController(
         _ picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
@@ -83,7 +95,6 @@ extension WriteViewController: UIImagePickerControllerDelegate & UINavigationCon
         }
         
         self.writeView.mainImageView.image = newImage
-        self.writeView.addButton.isEnabled = true
         picker.dismiss(animated: true, completion: nil)
     }
 }

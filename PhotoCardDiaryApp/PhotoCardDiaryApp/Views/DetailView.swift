@@ -24,14 +24,6 @@ final class DetailView: UIView {
         return button
     }()
     
-    lazy var editButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "highlighter"), for: .normal)
-        button.tintColor = .white
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -73,7 +65,6 @@ final class DetailView: UIView {
     private func setupUI() {
         setImageViewConstraint()
         setCloseButtonConstraint()
-        setEditButtonConstraint()
         setDateLabelConstraint()
         setTitleLabelConstraint()
         setMemoTextViewConstraint()
@@ -97,16 +88,6 @@ final class DetailView: UIView {
             closeButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 5),
             closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
             closeButton.heightAnchor.constraint(equalToConstant: 40)
-        ])
-    }
-    
-    private func setEditButtonConstraint() {
-        self.addSubview(editButton)
-        
-        NSLayoutConstraint.activate([
-            editButton.trailingAnchor.constraint(equalTo: closeButton.leadingAnchor, constant: -10),
-            editButton.topAnchor.constraint(equalTo: closeButton.topAnchor, constant: 0),
-            editButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     

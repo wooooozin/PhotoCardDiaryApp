@@ -18,6 +18,8 @@ class CardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
+        
         setupUI()
         setPhotoCardColloctioView()
     }
@@ -95,12 +97,26 @@ extension CardViewController: VerticalCardSwiperDatasource {
             cell.touchUpImageViewPressed = { [weak self] (senderCell) in
                 let vc = DetailViewController()
                 vc.photoCardData = photoData[index]
-                vc.modalPresentationStyle = .overFullScreen
-                self?.present(vc, animated: true)
+                vc.modalPresentationStyle = .fullScreen
+                self?.show(vc, sender: nil)
             }
             cell.longTouchUpImageViewPressed = {
-                print(#function)
-                
+                let alert = UIAlertController()
+                let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
+                    self.photoManager.deletePhotoCardData(data: photoData[index]) {
+                        self.photoCardCollectioView.reloadData()
+                        print("삭제 완료")
+                    }
+                }
+                let updateAction = UIAlertAction(title: "수정", style: .default) { _ in
+                    let vc = EditViewController()
+                    vc.photoData = photoData[index]
+                    vc.modalPresentationStyle = .fullScreen
+                    self.show(vc, sender: nil)
+                }
+                alert.addAction(updateAction)
+                alert.addAction(deleteAction)
+                self.present(alert, animated: true)
             }
             return cell
         }

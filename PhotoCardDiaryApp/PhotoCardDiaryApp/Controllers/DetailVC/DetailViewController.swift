@@ -9,9 +9,13 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    // MARK: - Property
+
     private let detailView = DetailView()
     var photoCardData: PhotoCardData?
+    let photoManager = CoreDataManager.shared
     
+    // MARK: - Lifecycle
     
     override func loadView() {
         view = detailView
@@ -20,21 +24,30 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        configureUIwithData()
+        setButtonAction()
+    }
+    
+    //MARK: - Method
+    
+    private func configureUIwithData() {
+        guard let data = photoCardData?.image else { return }
+        detailView.photoImageView.image = UIImage(data: data)
         detailView.memoTextView.text = photoCardData?.memoText
         detailView.dateLabel.text = photoCardData?.dateString
         detailView.titleLabel.text = photoCardData?.title
-        guard let data = photoCardData?.image else { return }
-        detailView.photoImageView.image = UIImage(data: data)
-        detailView.closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
-        detailView.editButton.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
+    }
+    
+    private func setButtonAction() {
+        detailView.closeButton.addTarget(
+            self,
+            action: #selector(closeButtonTapped),
+            for: .touchUpInside
+        )
     }
     
     @objc func closeButtonTapped() {
         print(#function)
         self.dismiss(animated: true)
-    }
-    
-    @objc func editButtonTapped() {
-        
     }
 }

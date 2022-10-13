@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  CardViewDetailViewController.swift
 //  PhotoCardDiaryApp
 //
 //  Created by 효우 on 2022/10/12.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class CardViewDetailViewController: UIViewController {
 
     // MARK: - Property
 

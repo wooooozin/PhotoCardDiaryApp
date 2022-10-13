@@ -105,7 +105,7 @@ extension CardViewController: VerticalCardSwiperDatasource {
             let photoData = photoManager.getPhotoListFromCoreData()
             cell.photoCardData = photoData[index]
             cell.touchUpImageViewPressed = { [weak self] (senderCell) in
-                let vc = DetailViewController()
+                let vc = CardViewDetailViewController()
                 vc.photoCardData = photoData[index]
                 vc.modalPresentationStyle = .fullScreen
                 self?.show(vc, sender: nil)

@@ -89,7 +89,15 @@ final class MainViewController: UIViewController {
 
 extension MainViewController {
     private func setNavigationBar() {
+        navigationController?.navigationBar.tintColor = .black
         navigationItem.titleView = segmentedControl
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(
+                systemName: "calendar"),
+                style: .plain,
+                target: self,
+                action: #selector(naviRightBettonTapped)
+        )
     }
     
     private func setupUI() {
@@ -174,6 +182,9 @@ extension MainViewController {
         present(vc, animated: true)
     }
 
+    @objc private func naviRightBettonTapped() {
+        print(#function)
+    }
 }
 
 

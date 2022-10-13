@@ -73,6 +73,7 @@ extension CollectViewController {
     
     func setCollectionVIew() {
         collectCollectionView.dataSource = self
+        collectCollectionView.delegate = self
         collectCollectionView.register(CollectCell.self, forCellWithReuseIdentifier: "CollectCell")
     }
 }
@@ -88,7 +89,10 @@ extension CollectViewController: UICollectionViewDataSource {
         return photoManager.getPhotoListFromCoreData().count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         guard let cell = collectCollectionView.dequeueReusableCell(
             withReuseIdentifier: "CollectCell",
             for: indexPath
@@ -99,3 +103,16 @@ extension CollectViewController: UICollectionViewDataSource {
         return cell
     }
 }
+
+// MARK: - UICollectionViewDelegate
+
+extension CollectViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(#function)
+        let vc = CardViewDetailViewController()
+        vc.photoCardData = photoManager.getPhotoListFromCoreData()[indexPath.row]
+        vc.modalPresentationStyle = .fullScreen
+        self.show(vc, sender: nil)
+    }
+}
+

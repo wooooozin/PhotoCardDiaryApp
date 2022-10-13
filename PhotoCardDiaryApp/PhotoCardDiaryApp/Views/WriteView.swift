@@ -167,8 +167,8 @@ extension WriteView: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            textView.text = "당신의 순간을 기록해주세요."
-            textView.textColor = .lightGray
+            textView.text = ""
+            textView.textColor = .black
         }
     }
 }

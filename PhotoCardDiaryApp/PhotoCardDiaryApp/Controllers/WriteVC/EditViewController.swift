@@ -24,6 +24,8 @@ final class EditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        writeView.titleLabel.text = "수정하기"
+        
         setupButtonAction()
         setupTapGestures()
         configureUIwithData()

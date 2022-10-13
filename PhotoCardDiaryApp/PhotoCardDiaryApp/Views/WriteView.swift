@@ -40,10 +40,10 @@ final class WriteView: UIView {
     
     let mainImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
-        imageView.image = UIImage(systemName: "photo")
+        imageView.image = UIImage(named: "add4")
         imageView.tintColor = .systemGray6
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -52,6 +52,7 @@ final class WriteView: UIView {
     let titleTextField: UITextField = {
         let tf = UITextField()
         tf.borderStyle = .none
+        tf.autocapitalizationType = .none
         tf.textColor = .black
         tf.placeholder = "제목을 입력해주세요"
         tf.translatesAutoresizingMaskIntoConstraints = false
@@ -62,13 +63,14 @@ final class WriteView: UIView {
         let tv = UITextView()
         tv.textColor = .lightGray
         tv.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        tv.autocapitalizationType = .none
         tv.isScrollEnabled = true
         tv.text = "당신의 순간을 기록해주세요."
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
     
-    let topStackView: UIStackView = {
+    private let topStackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .horizontal
         sv.alignment = .fill
@@ -78,18 +80,18 @@ final class WriteView: UIView {
         return sv
     }()
     
-    let bottomStackView: UIStackView = {
+    private let bottomStackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.alignment = .fill
         sv.distribution = .fill
-        sv.spacing = 5
+        sv.spacing = 10
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
     
     // MARK: - init
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
@@ -102,7 +104,6 @@ final class WriteView: UIView {
     }
     
     // MARK: - Method
-
     
     private func setupUI() {
         setTopStackView()

@@ -31,7 +31,7 @@ final class CollectViewController: UIViewController {
     
     
     // MARK: - LifeCycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -62,7 +62,7 @@ extension CollectViewController {
             ),
             collectCollectionView.topAnchor.constraint(
                 equalTo: view.safeAreaLayoutGuide.topAnchor,
-                constant: 0
+                constant: 10
             ),
             collectCollectionView.bottomAnchor.constraint(
                 equalTo: view.safeAreaLayoutGuide.bottomAnchor,
@@ -75,6 +75,7 @@ extension CollectViewController {
         collectCollectionView.dataSource = self
         collectCollectionView.delegate = self
         collectCollectionView.register(CollectCell.self, forCellWithReuseIdentifier: "CollectCell")
+        collectCollectionView.register(EmptyCell.self, forCellWithReuseIdentifier: "EmptyCell")
     }
 }
 
@@ -86,21 +87,35 @@ extension CollectViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return photoManager.getPhotoListFromCoreData().count
+        if photoManager.getPhotoListFromCoreData().count == 0 {
+            return 1
+        } else {
+            return photoManager.getPhotoListFromCoreData().count
+        }
     }
     
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        guard let cell = collectCollectionView.dequeueReusableCell(
-            withReuseIdentifier: "CollectCell",
-            for: indexPath
-        ) as? CollectCell else {
-            return UICollectionViewCell()
+        if photoManager.getPhotoListFromCoreData().count == 0 {
+            guard let cell = collectCollectionView.dequeueReusableCell(
+                withReuseIdentifier: "EmptyCell",
+                for: indexPath
+            ) as? EmptyCell else {
+                return UICollectionViewCell()
+            }
+            return cell
+        } else {
+            guard let cell = collectCollectionView.dequeueReusableCell(
+                withReuseIdentifier: "CollectCell",
+                for: indexPath
+            ) as? CollectCell else {
+                return UICollectionViewCell()
+            }
+            cell.photoCardData = photoManager.getPhotoListFromCoreData()[indexPath.row]
+            return cell
         }
-        cell.photoCardData = photoManager.getPhotoListFromCoreData()[indexPath.row]
-        return cell
     }
 }
 

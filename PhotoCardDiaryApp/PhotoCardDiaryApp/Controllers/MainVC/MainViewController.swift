@@ -10,7 +10,7 @@ import UIKit
 final class MainViewController: UIViewController {
     
     // MARK: - Property
-    
+        
     private let segmentedControl: UISegmentedControl = {
         let segmentedControl = UnderlineSegmentedControl(items: ["최신", "추억"])
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
@@ -94,9 +94,16 @@ extension MainViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(
                 systemName: "calendar"),
-                style: .plain,
-                target: self,
-                action: #selector(naviRightBettonTapped)
+            style: .plain,
+            target: self,
+            action: #selector(naviRightButtonTapped)
+        )
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(
+                systemName: "magnifyingglass"),
+            style: .plain,
+            target: self,
+            action: #selector(naviLefttButtonTapped)
         )
     }
     
@@ -181,9 +188,18 @@ extension MainViewController {
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
-
-    @objc private func naviRightBettonTapped() {
+    
+    @objc private func naviRightButtonTapped() {
         print(#function)
+        let vc = CalendarViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    @objc private func naviLefttButtonTapped() {
+        let vc = ResultViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }
 
@@ -225,4 +241,3 @@ extension MainViewController: UIPageViewControllerDataSource, UIPageViewControll
         segmentedControl.selectedSegmentIndex = index
     }
 }
-

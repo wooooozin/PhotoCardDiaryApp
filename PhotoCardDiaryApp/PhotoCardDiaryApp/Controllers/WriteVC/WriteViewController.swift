@@ -66,7 +66,9 @@ extension WriteViewController {
         let image = writeView.mainImageView.image?.pngData()
         photoManager.savePhotoCardData(title: title, memoText: memoText, image: image) {
             print("저장완료")
-            self.dismiss(animated: true)
+            self.dismiss(animated: true) {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
         }
     }
     

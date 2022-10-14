@@ -16,6 +16,24 @@ final class CoreDataManager {
     lazy var context = appDelegate?.persistentContainer.viewContext
     let modelName: String = "PhotoCardData"
     
+    func searchDatePhotoListFromCoreData(date: Date) -> [PhotoCardData] {
+        var photoList: [PhotoCardData] = []
+        let request: NSFetchRequest<PhotoCardData> = PhotoCardData.fetchRequest()
+        request.predicate = NSPredicate(
+            format: "date >= %@ && date <= %@",
+            Calendar.current.startOfDay(for: date) as CVarArg,
+            Calendar.current.startOfDay(for: date + 86400) as CVarArg
+        ) 
+        
+        do{
+            let objects = try context?.fetch(request)
+            photoList = objects ?? []
+        } catch {
+            print(error)
+        }
+        return photoList
+    }
+    
     func searchPhotoListFromCoreData(text: String) -> [PhotoCardData] {
         var photoList: [PhotoCardData] = []
         let query = text

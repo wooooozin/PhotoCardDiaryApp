@@ -11,6 +11,15 @@ final class ResultViewController: UIViewController {
     
     // MARK: - Property
     
+    lazy private var closeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("닫기", for: .normal)
+        button.tintColor = .black
+        button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = UISearchBar.Style.minimal
@@ -21,6 +30,16 @@ final class ResultViewController: UIViewController {
         searchBar.autocapitalizationType = .none
         searchBar.isTranslucent = false
         return searchBar
+    }()
+    
+    private let topStackView: UIStackView = {
+        let sv = UIStackView()
+        sv.axis = .horizontal
+        sv.alignment = .fill
+        sv.distribution = .fill
+        sv.spacing = 2
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        return sv
     }()
     
     private let resultTableView: UITableView = {
@@ -44,25 +63,39 @@ final class ResultViewController: UIViewController {
 extension ResultViewController {
     private func setupUI() {
         view.backgroundColor = .white
-        setNavigationBar()
+        setupTopViewConstraint()
         setupTableViewConstraint()
         setupTableView()
     }
-    private func setNavigationBar() {
-        navigationItem.titleView = searchBar
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "chevron.backward"),
-            style: .plain,
-            target: self,
-            action: #selector(leftBarButtonItemTapped)
-        )
+    
+    private func setupTopViewConstraint() {
+        view.addSubview(topStackView)
+        topStackView.addArrangedSubview(closeButton)
+        topStackView.addArrangedSubview(searchBar)
+        
+        NSLayoutConstraint.activate([
+            topStackView.topAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.topAnchor,
+                constant: 0
+            ),
+            topStackView.leadingAnchor.constraint(
+                equalTo: view.leadingAnchor,
+                constant: 20
+            ),
+            topStackView.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor,
+                constant: -20
+            ),
+            topStackView.heightAnchor.constraint(equalToConstant: 60),
+            closeButton.widthAnchor.constraint(equalToConstant: 50)
+        ])
     }
     
     private func setupTableViewConstraint() {
         view.addSubview(resultTableView)
         
         NSLayoutConstraint.activate([
-            resultTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            resultTableView.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 10),
             resultTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             resultTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             resultTableView.bottomAnchor.constraint(
@@ -80,8 +113,8 @@ extension ResultViewController {
         resultTableView.register(ResultCell.self, forCellReuseIdentifier: "ResultCell")
     }
     
-    @objc private func leftBarButtonItemTapped() {
-        self.navigationController?.popViewController(animated: true)
+    @objc private func closeButtonTapped() {
+        self.dismiss(animated: true)
     }
 }
 

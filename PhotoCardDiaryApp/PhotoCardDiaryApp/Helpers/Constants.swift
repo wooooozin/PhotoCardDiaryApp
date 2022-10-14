@@ -14,5 +14,5 @@ public struct WeatherApi {
 public struct CVCell {
     static let spacingWitdh: CGFloat = 10
     static let cellColumns: CGFloat = 2
-    private init() {}
+    private init() { }
 }

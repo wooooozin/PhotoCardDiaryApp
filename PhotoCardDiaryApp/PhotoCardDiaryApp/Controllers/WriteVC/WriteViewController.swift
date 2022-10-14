@@ -128,7 +128,7 @@ extension WriteViewController: UIImagePickerControllerDelegate & UINavigationCon
     ) {
         var newImage: UIImage? = nil
         
-        if let updateImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+        if let updateImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             newImage = updateImage
         } else if let updateImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             newImage = updateImage

@@ -16,13 +16,12 @@ extension UIImage {
             return nil
         }
 
-        // flip the image, or result appears flipped
         ctx.scaleBy(x: 1.0, y: -1.0)
         ctx.translateBy(x: 0, y: -size.height)
 
         let rect = CGRect(origin: .zero, size: size)
         ctx.draw(cgImage, in: rect)
-        UIColor(white: 0, alpha: 0.5).setFill()
+        UIColor(white: 0, alpha: 0.2).setFill()
         ctx.fill(rect)
 
         return UIGraphicsGetImageFromCurrentImageContext()

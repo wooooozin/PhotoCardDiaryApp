@@ -10,7 +10,7 @@ import UIKit
 final class MainViewController: UIViewController {
     
     // MARK: - Property
-        
+    
     private let segmentedControl: UISegmentedControl = {
         let segmentedControl = UnderlineSegmentedControl(items: ["최신", "추억"])
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
@@ -75,7 +75,7 @@ final class MainViewController: UIViewController {
             )
         }
     }
-        
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -90,7 +90,7 @@ final class MainViewController: UIViewController {
 extension MainViewController {
     private func setNavigationBar() {
         navigationController?.navigationBar.tintColor = .black
-        navigationItem.titleView = segmentedControl
+        self.navigationItem.titleView = segmentedControl
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(
                 systemName: "calendar"),
@@ -192,13 +192,14 @@ extension MainViewController {
     @objc private func naviRightButtonTapped() {
         print(#function)
         let vc = CalendarViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
     
     @objc private func naviLefttButtonTapped() {
         let vc = ResultViewController()
         vc.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(vc, animated: true)
+        present(vc, animated: true)
     }
 }
 

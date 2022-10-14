@@ -84,7 +84,7 @@ final class CollectCell: UICollectionViewCell {
     private func configureUIwithData() {
         dateLabel.text = photoCardData?.dateString
         guard let data = photoCardData?.image else { return }
-        mainImageView.image = UIImage(data: data)
+        mainImageView.image = UIImage(data: data)?.darkened()
     }
     
     @objc private func imageViewTapped() {

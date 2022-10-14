@@ -13,7 +13,7 @@ final class WriteView: UIView {
     
     lazy var closeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("닫기", for: .normal)
+        button.setTitle("취소", for: .normal)
         button.tintColor = .black
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

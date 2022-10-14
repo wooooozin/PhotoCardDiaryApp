@@ -192,14 +192,13 @@ extension MainViewController {
     @objc private func naviRightButtonTapped() {
         print(#function)
         let vc = CalendarViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func naviLefttButtonTapped() {
         let vc = ResultViewController()
         vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -217,6 +216,7 @@ extension MainViewController: UIPageViewControllerDataSource, UIPageViewControll
         else { return nil }
         return self.dataViewControllers[index - 1]
     }
+    
     func pageViewController(
         _ pageViewController: UIPageViewController,
         viewControllerAfter viewController: UIViewController
@@ -227,6 +227,7 @@ extension MainViewController: UIPageViewControllerDataSource, UIPageViewControll
         else { return nil }
         return self.dataViewControllers[index + 1]
     }
+    
     func pageViewController(
         _ pageViewController: UIPageViewController,
         didFinishAnimating finished: Bool,

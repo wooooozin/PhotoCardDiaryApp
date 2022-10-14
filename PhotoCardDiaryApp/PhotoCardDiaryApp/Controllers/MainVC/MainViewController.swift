@@ -10,6 +10,24 @@ import UIKit
 final class MainViewController: UIViewController {
     
     // MARK: - Property
+    private lazy var settingButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "gearshape"), for: .normal)
+        button.addTarget(self, action: #selector(settingButtonTapped), for: .touchUpInside)
+        button.sizeToFit()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private lazy var searchButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        button.sizeToFit()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
+        return button
+
+    }()
     
     private let segmentedControl: UISegmentedControl = {
         let segmentedControl = UnderlineSegmentedControl(items: ["최신", "추억"])
@@ -98,13 +116,10 @@ extension MainViewController {
             target: self,
             action: #selector(naviRightButtonTapped)
         )
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(
-                systemName: "magnifyingglass"),
-            style: .plain,
-            target: self,
-            action: #selector(naviLefttButtonTapped)
-        )
+        navigationItem.leftBarButtonItems = [
+            UIBarButtonItem(customView: settingButton),
+            UIBarButtonItem(customView: searchButton)
+        ]
     }
     
     private func setupUI() {
@@ -196,10 +211,14 @@ extension MainViewController {
         present(vc, animated: true)
     }
     
-    @objc private func naviLefttButtonTapped() {
+    @objc private func searchButtonTapped() {
         let vc = ResultViewController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
+    }
+    
+    @objc private func settingButtonTapped() {
+        print(#function)
     }
 }
 

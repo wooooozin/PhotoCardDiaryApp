@@ -147,7 +147,7 @@ final class PhotoCardCell: CardCell {
         dateLabel.text = photoCardData?.dateString
         guard let data = photoCardData?.image,
               let weatherData = photoCardData?.weather else { return }
-        photoImageView.image = UIImage(data: data)
+        photoImageView.image = UIImage(data: data)?.darkened()
         weatherImage.image = UIImage(data: weatherData)
     }
     

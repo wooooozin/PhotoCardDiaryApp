@@ -48,6 +48,7 @@ final class CalendarViewController: UIViewController {
 
 extension CalendarViewController {
     private func setNavigationBar() {
+        navigationItem.title = "달력"
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "chevron.backward"),
             style: .plain,
@@ -94,9 +95,11 @@ extension CalendarViewController {
         calendarView.delegate = self
         
         calendarView.headerHeight = 40
-        calendarView.appearance.weekdayTextColor = .black
-        calendarView.appearance.headerTitleColor = .black
-        calendarView.appearance.selectionColor = .systemGray
+        calendarView.appearance.weekdayTextColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+        calendarView.appearance.headerTitleColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+        calendarView.appearance.headerTitleFont = .boldSystemFont(ofSize: 18)
+        calendarView.appearance.selectionColor = .systemGray4
+        calendarView.appearance.todayColor = UIColor(red: 184/255, green: 197/255, blue: 161/255, alpha: 1.0)
         
     }
     

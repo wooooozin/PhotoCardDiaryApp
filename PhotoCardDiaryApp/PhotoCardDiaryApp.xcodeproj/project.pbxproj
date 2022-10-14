@@ -17,6 +17,7 @@
 		3670DB4F28F6FD070087812E /* CardViewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB4E28F6FD070087812E /* CardViewDetailViewController.swift */; };
 		3670DB5128F7131D0087812E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB5028F7131D0087812E /* DetailView.swift */; };
 		3670DB5628F73B9B0087812E /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB5528F73B9B0087812E /* EditViewController.swift */; };
+		36B3329E28F9B5A30021E0E0 /* UIImage+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B3329D28F9B5A30021E0E0 /* UIImage+Extesion.swift */; };
 		36B6139828F7ABFF0037557E /* CollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6139728F7ABFF0037557E /* CollectCell.swift */; };
 		36B6139A28F7BB6E0037557E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6139928F7BB6E0037557E /* Constants.swift */; };
 		36B6139D28F7C85F0037557E /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6139C28F7C85F0037557E /* CalendarViewController.swift */; };
@@ -49,6 +50,7 @@
 		3670DB4E28F6FD070087812E /* CardViewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewDetailViewController.swift; sourceTree = "<group>"; };
 		3670DB5028F7131D0087812E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3670DB5528F73B9B0087812E /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		36B3329D28F9B5A30021E0E0 /* UIImage+Extesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extesion.swift"; sourceTree = "<group>"; };
 		36B6139728F7ABFF0037557E /* CollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectCell.swift; sourceTree = "<group>"; };
 		36B6139928F7BB6E0037557E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		36B6139C28F7C85F0037557E /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				36B6139928F7BB6E0037557E /* Constants.swift */,
+				36B3329D28F9B5A30021E0E0 /* UIImage+Extesion.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36B613AE28F86ECD0037557E /* NetworkManager.swift in Sources */,
+				36B3329E28F9B5A30021E0E0 /* UIImage+Extesion.swift in Sources */,
 				36B6139D28F7C85F0037557E /* CalendarViewController.swift in Sources */,
 				3670DB4328F6837A0087812E /* PhotoCardData+CoreDataClass.swift in Sources */,
 				36B613A028F7E7640037557E /* ResultViewController.swift in Sources */,

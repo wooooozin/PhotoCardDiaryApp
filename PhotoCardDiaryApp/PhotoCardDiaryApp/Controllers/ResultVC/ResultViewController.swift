@@ -51,6 +51,8 @@ final class ResultViewController: UIViewController {
     private var searchData: [PhotoCardData] = []
     let photoManager = CoreDataManager.shared
     
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -111,6 +113,7 @@ extension ResultViewController {
         resultTableView.separatorStyle = .none
         resultTableView.separatorInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         resultTableView.register(ResultCell.self, forCellReuseIdentifier: "ResultCell")
+        resultTableView.register(ResultEmptyCell.self, forCellReuseIdentifier: "ResultEmptyCell")
     }
     
     @objc private func closeButtonTapped() {
@@ -122,20 +125,35 @@ extension ResultViewController {
 
 extension ResultViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchData.count
+        if searchData.count == 0 {
+            return 1
+        } else {
+            return searchData.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = resultTableView.dequeueReusableCell(
-            withIdentifier: "ResultCell",
-            for: indexPath
-        ) as? ResultCell
-        else {
-            return UITableViewCell()
+        if searchData.count != 0 {
+            guard let cell = resultTableView.dequeueReusableCell(
+                withIdentifier: "ResultCell",
+                for: indexPath
+            ) as? ResultCell else {
+                return UITableViewCell()
+            }
+            cell.selectionStyle = .none
+            cell.photoCardData = searchData[indexPath.row]
+            return cell
+        } else {
+            guard let cell = resultTableView.dequeueReusableCell(
+                withIdentifier: "ResultEmptyCell",
+                for: indexPath
+            ) as? ResultEmptyCell else {
+                return UITableViewCell()
+            }
+            cell.selectionStyle = .none
+            
+            return cell
         }
-        cell.selectionStyle = .none
-        cell.photoCardData = searchData[indexPath.row]
-        return cell
     }
 }
 
@@ -171,6 +189,10 @@ extension ResultViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchData = photoManager.searchPhotoListFromCoreData(text: searchText)
         resultTableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
     }
 }
 

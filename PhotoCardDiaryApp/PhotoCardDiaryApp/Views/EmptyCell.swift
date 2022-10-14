@@ -12,14 +12,12 @@ final class EmptyCell: CardCell {
     
     // MARK: - Property
 
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.text = "아직 작성한 기록이 없어요. \n당신의 순간을 남겨주세요."
-        label.numberOfLines = 0
-        label.font = UIFont.boldSystemFont(ofSize: 40)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    private let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "emptyCell")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
     // MARK: - init
@@ -34,14 +32,13 @@ final class EmptyCell: CardCell {
     }
     
     private func setupUI() {
-        self.addSubview(titleLabel)
+        self.addSubview(imageView)
         
         NSLayoutConstraint.activate([
-            titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            titleLabel.heightAnchor.constraint(equalToConstant: 200),
-            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
+            imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
     }
     

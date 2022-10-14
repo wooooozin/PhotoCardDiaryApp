@@ -18,6 +18,7 @@
 		3670DB5128F7131D0087812E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB5028F7131D0087812E /* DetailView.swift */; };
 		3670DB5628F73B9B0087812E /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB5528F73B9B0087812E /* EditViewController.swift */; };
 		36B3329E28F9B5A30021E0E0 /* UIImage+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B3329D28F9B5A30021E0E0 /* UIImage+Extesion.swift */; };
+		36B332A228F9E1B80021E0E0 /* ResultEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B332A128F9E1B80021E0E0 /* ResultEmptyCell.swift */; };
 		36B6139828F7ABFF0037557E /* CollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6139728F7ABFF0037557E /* CollectCell.swift */; };
 		36B6139A28F7BB6E0037557E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6139928F7BB6E0037557E /* Constants.swift */; };
 		36B6139D28F7C85F0037557E /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6139C28F7C85F0037557E /* CalendarViewController.swift */; };
@@ -51,6 +52,7 @@
 		3670DB5028F7131D0087812E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3670DB5528F73B9B0087812E /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		36B3329D28F9B5A30021E0E0 /* UIImage+Extesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extesion.swift"; sourceTree = "<group>"; };
+		36B332A128F9E1B80021E0E0 /* ResultEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultEmptyCell.swift; sourceTree = "<group>"; };
 		36B6139728F7ABFF0037557E /* CollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectCell.swift; sourceTree = "<group>"; };
 		36B6139928F7BB6E0037557E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		36B6139C28F7C85F0037557E /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				3670DB4B28F6EE570087812E /* EmptyCell.swift */,
 				36B6139728F7ABFF0037557E /* CollectCell.swift */,
 				36B613A328F7FF540037557E /* ResultCell.swift */,
+				36B332A128F9E1B80021E0E0 /* ResultEmptyCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				3670DB4328F6837A0087812E /* PhotoCardData+CoreDataClass.swift in Sources */,
 				36B613A028F7E7640037557E /* ResultViewController.swift in Sources */,
 				36B6139A28F7BB6E0037557E /* Constants.swift in Sources */,
+				36B332A228F9E1B80021E0E0 /* ResultEmptyCell.swift in Sources */,
 				36B613A428F7FF540037557E /* ResultCell.swift in Sources */,
 				36DD6AD828F652E90071137F /* PhotoCardDiaryApp.xcdatamodeld in Sources */,
 				36DD6ACE28F652E90071137F /* AppDelegate.swift in Sources */,

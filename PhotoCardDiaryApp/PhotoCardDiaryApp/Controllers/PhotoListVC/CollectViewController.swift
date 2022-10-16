@@ -116,7 +116,7 @@ extension CollectViewController {
     private func setCollectionVIew() {
         collectCollectionView.dataSource = self
         collectCollectionView.delegate = self
-        collectCollectionView.register(CollectCell.self, forCellWithReuseIdentifier: "CollectCell")
+        collectCollectionView.register(CollectCell.self, forCellWithReuseIdentifier: CellName.collectCell)
     }
     
     private func setupEmptyDataView() {
@@ -144,7 +144,7 @@ extension CollectViewController: UICollectionViewDataSource {
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         guard let cell = collectCollectionView.dequeueReusableCell(
-            withReuseIdentifier: "CollectCell",
+            withReuseIdentifier: CellName.collectCell,
             for: indexPath
         ) as? CollectCell else {
             return UICollectionViewCell()

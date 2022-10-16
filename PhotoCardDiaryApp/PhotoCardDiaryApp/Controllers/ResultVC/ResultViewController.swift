@@ -140,7 +140,7 @@ extension ResultViewController {
         resultTableView.delegate = self
         resultTableView.separatorStyle = .none
         resultTableView.separatorInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
-        resultTableView.register(ResultCell.self, forCellReuseIdentifier: "ResultCell")
+        resultTableView.register(ResultCell.self, forCellReuseIdentifier: CellName.resultCell)
     }
     
     private func setupEmptyDataView() {
@@ -168,7 +168,7 @@ extension ResultViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = resultTableView.dequeueReusableCell(
-            withIdentifier: "ResultCell",
+            withIdentifier: CellName.resultCell,
             for: indexPath
         ) as? ResultCell else {
             return UITableViewCell()

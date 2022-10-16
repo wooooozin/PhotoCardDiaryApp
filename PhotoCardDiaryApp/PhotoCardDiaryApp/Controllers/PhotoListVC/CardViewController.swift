@@ -111,7 +111,7 @@ extension CardViewController {
         photoCardCollectioView.datasource = self
         photoCardCollectioView.register(
             PhotoCardCell.self,
-            forCellWithReuseIdentifier: "PhotoCardCell"
+            forCellWithReuseIdentifier: CellName.photoCardCell
         )
     }
     
@@ -138,7 +138,7 @@ extension CardViewController: VerticalCardSwiperDatasource {
         cardForItemAt index: Int
     ) -> CardCell {
         guard let cell = verticalCardSwiperView.dequeueReusableCell(
-            withReuseIdentifier: "PhotoCardCell",
+            withReuseIdentifier: CellName.photoCardCell,
             for: index
         ) as? PhotoCardCell else {
             return CardCell()

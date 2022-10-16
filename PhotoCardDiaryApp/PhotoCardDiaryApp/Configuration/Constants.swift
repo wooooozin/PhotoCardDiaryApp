@@ -34,3 +34,9 @@ public struct Icon {
     static let noData = "noData"
     static let noResult = "noResult"
 }
+
+public struct CellName {
+    static let photoCardCell = "PhotoCardCell"
+    static let collectCell = "CollectCell"
+    static let resultCell = "ResultCell"
+}

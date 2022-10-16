@@ -33,7 +33,7 @@ final class WriteView: UIView {
         label.textAlignment = .center
         label.textColor = .black
         label.text = "새로운 순간"
-        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -53,7 +53,7 @@ final class WriteView: UIView {
         tf.borderStyle = .none
         tf.autocapitalizationType = .none
         tf.textColor = .black
-        tf.placeholder = "제목을 입력해주세요"
+        tf.placeholder = " 제목을 입력해주세요"
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
@@ -62,7 +62,7 @@ final class WriteView: UIView {
         let tv = UITextView()
         tv.textColor = .lightGray
         tv.tintColor = .lightGray
-        tv.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        tv.font = UIFont.systemFont(ofSize: 18)
         tv.autocapitalizationType = .none
         tv.isScrollEnabled = true
         tv.text = "당신의 순간을 기록해주세요."

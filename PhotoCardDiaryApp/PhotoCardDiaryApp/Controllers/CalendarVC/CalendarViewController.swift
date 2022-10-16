@@ -131,7 +131,7 @@ extension CalendarViewController {
         calendarView.appearance.weekdayTextColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
         calendarView.appearance.headerTitleColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
         calendarView.appearance.headerTitleFont = .boldSystemFont(ofSize: 18)
-        calendarView.appearance.selectionColor = .systemGray4
+        calendarView.appearance.selectionColor = .systemGray5
         calendarView.appearance.todayColor = UIColor(red: 184/255, green: 197/255, blue: 161/255, alpha: 1.0)
         calendarView.appearance.eventDefaultColor = UIColor(red: 184/255, green: 197/255, blue: 161/255, alpha: 1.0)
         calendarView.appearance.eventSelectionColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)

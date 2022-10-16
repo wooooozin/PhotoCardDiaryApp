@@ -10,14 +10,6 @@ import UIKit
 final class MainViewController: UIViewController {
     
     // MARK: - Property
-    private lazy var settingButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "gearshape"), for: .normal)
-        button.addTarget(self, action: #selector(settingButtonTapped), for: .touchUpInside)
-        button.sizeToFit()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
     
     private lazy var searchButton: UIButton = {
         let button = UIButton(type: .system)
@@ -117,7 +109,6 @@ extension MainViewController {
             action: #selector(naviRightButtonTapped)
         )
         navigationItem.leftBarButtonItems = [
-            UIBarButtonItem(customView: settingButton),
             UIBarButtonItem(customView: searchButton)
         ]
     }
@@ -214,10 +205,6 @@ extension MainViewController {
         let vc = ResultViewController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
-    }
-    
-    @objc private func settingButtonTapped() {
-        print(#function)
     }
 }
 

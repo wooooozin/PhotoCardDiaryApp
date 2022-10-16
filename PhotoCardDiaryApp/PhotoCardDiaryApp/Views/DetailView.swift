@@ -56,7 +56,7 @@ final class DetailView: UIView {
     let memoTextView: UITextView = {
         let tv = UITextView()
         tv.textColor = .black
-        tv.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        tv.font = UIFont.systemFont(ofSize: 18)
         tv.isScrollEnabled = true
         tv.isEditable = false
         tv.translatesAutoresizingMaskIntoConstraints = false
@@ -142,10 +142,10 @@ final class DetailView: UIView {
         NSLayoutConstraint.activate([
             memoTextView.topAnchor.constraint(
                 equalTo: photoImageView.bottomAnchor,
-                constant: 0
+                constant: 20
             ),
-            memoTextView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-            memoTextView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+            memoTextView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            memoTextView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             memoTextView.bottomAnchor.constraint(
                 equalTo: self.safeAreaLayoutGuide.bottomAnchor,
                 constant: 0

@@ -67,6 +67,20 @@ extension WriteViewController {
         writeView.mainImageView.addGestureRecognizer(tapGesture)
     }
     
+    func fixOrientation(img: UIImage) -> UIImage {
+        if (img.imageOrientation == .up) {
+            return img
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(img.size, false, img.scale)
+        let rect = CGRect(x: 0, y: 0, width: img.size.width, height: img.size.height)
+        img.draw(in: rect)
+        
+        let normalizedImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return normalizedImage
+    }
+    
     private func weatherIntString(_ weatherId: Int) -> String {
         switch weatherId {
         case 200...232:
@@ -96,7 +110,8 @@ extension WriteViewController {
         weatherImageString = weatherIntString(weatherImageInt)
         let memoText = writeView.memoTextView.text
         let title = writeView.titleTextField.text
-        let image = writeView.mainImageView.image?.pngData()
+        let fixImage = fixOrientation(img: writeView.mainImageView.image ?? UIImage())
+        let image = fixImage.decodedImage().pngData()
         var weather = UIImage().pngData()
         guard let safeWeather = UIImage(systemName: weatherImageString)?.withTintColor(.white).pngData() else {
             return weather = UIImage(systemName: "sun.min")?.withTintColor(.white).pngData()
@@ -122,6 +137,7 @@ extension WriteViewController {
 // MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
 
 extension WriteViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
     func imagePickerController(
         _ picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]

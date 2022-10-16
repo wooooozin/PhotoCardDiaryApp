@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "emptyCell.png",
+      "filename" : "noData.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "emptyCell 1.png",
+      "filename" : "noData 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "emptyCell 2.png",
+      "filename" : "noData 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }

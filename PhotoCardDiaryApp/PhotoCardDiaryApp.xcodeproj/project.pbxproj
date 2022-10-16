@@ -7,18 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3645CD7428FBC8FB00F3A87E /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3645CD7328FBC8FB00F3A87E /* EmptyView.swift */; };
 		3670DB3B28F670590087812E /* PhotoCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB3A28F670590087812E /* PhotoCardCell.swift */; };
 		3670DB4228F6837A0087812E /* PhotoCardData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB4028F6837A0087812E /* PhotoCardData+CoreDataProperties.swift */; };
 		3670DB4328F6837A0087812E /* PhotoCardData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB4128F6837A0087812E /* PhotoCardData+CoreDataClass.swift */; };
 		3670DB4528F685830087812E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB4428F685830087812E /* CoreDataManager.swift */; };
 		3670DB4828F697B50087812E /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB4728F697B50087812E /* WriteViewController.swift */; };
 		3670DB4A28F6A5B70087812E /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB4928F6A5B70087812E /* WriteView.swift */; };
-		3670DB4C28F6EE570087812E /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB4B28F6EE570087812E /* EmptyCell.swift */; };
 		3670DB4F28F6FD070087812E /* CardViewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB4E28F6FD070087812E /* CardViewDetailViewController.swift */; };
 		3670DB5128F7131D0087812E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB5028F7131D0087812E /* DetailView.swift */; };
 		3670DB5628F73B9B0087812E /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670DB5528F73B9B0087812E /* EditViewController.swift */; };
 		36B3329E28F9B5A30021E0E0 /* UIImage+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B3329D28F9B5A30021E0E0 /* UIImage+Extesion.swift */; };
-		36B332A228F9E1B80021E0E0 /* ResultEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B332A128F9E1B80021E0E0 /* ResultEmptyCell.swift */; };
 		36B6139828F7ABFF0037557E /* CollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6139728F7ABFF0037557E /* CollectCell.swift */; };
 		36B6139A28F7BB6E0037557E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6139928F7BB6E0037557E /* Constants.swift */; };
 		36B6139D28F7C85F0037557E /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6139C28F7C85F0037557E /* CalendarViewController.swift */; };
@@ -41,18 +40,17 @@
 /* Begin PBXFileReference section */
 		09D385F84BD4A41134FE4EEE /* Pods_PhotoCardDiaryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoCardDiaryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		272AE56AA9D94FDC94EA3304 /* Pods-PhotoCardDiaryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoCardDiaryApp.debug.xcconfig"; path = "Target Support Files/Pods-PhotoCardDiaryApp/Pods-PhotoCardDiaryApp.debug.xcconfig"; sourceTree = "<group>"; };
+		3645CD7328FBC8FB00F3A87E /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		3670DB3A28F670590087812E /* PhotoCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardCell.swift; sourceTree = "<group>"; };
 		3670DB4028F6837A0087812E /* PhotoCardData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PhotoCardData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3670DB4128F6837A0087812E /* PhotoCardData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PhotoCardData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3670DB4428F685830087812E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3670DB4728F697B50087812E /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		3670DB4928F6A5B70087812E /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
-		3670DB4B28F6EE570087812E /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
 		3670DB4E28F6FD070087812E /* CardViewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewDetailViewController.swift; sourceTree = "<group>"; };
 		3670DB5028F7131D0087812E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3670DB5528F73B9B0087812E /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		36B3329D28F9B5A30021E0E0 /* UIImage+Extesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extesion.swift"; sourceTree = "<group>"; };
-		36B332A128F9E1B80021E0E0 /* ResultEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultEmptyCell.swift; sourceTree = "<group>"; };
 		36B6139728F7ABFF0037557E /* CollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectCell.swift; sourceTree = "<group>"; };
 		36B6139928F7BB6E0037557E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		36B6139C28F7C85F0037557E /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -182,11 +180,10 @@
 			children = (
 				3670DB4928F6A5B70087812E /* WriteView.swift */,
 				3670DB5028F7131D0087812E /* DetailView.swift */,
+				3645CD7328FBC8FB00F3A87E /* EmptyView.swift */,
 				3670DB3A28F670590087812E /* PhotoCardCell.swift */,
-				3670DB4B28F6EE570087812E /* EmptyCell.swift */,
 				36B6139728F7ABFF0037557E /* CollectCell.swift */,
 				36B613A328F7FF540037557E /* ResultCell.swift */,
-				36B332A128F9E1B80021E0E0 /* ResultEmptyCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -365,13 +362,12 @@
 				3670DB4328F6837A0087812E /* PhotoCardData+CoreDataClass.swift in Sources */,
 				36B613A028F7E7640037557E /* ResultViewController.swift in Sources */,
 				36B6139A28F7BB6E0037557E /* Constants.swift in Sources */,
-				36B332A228F9E1B80021E0E0 /* ResultEmptyCell.swift in Sources */,
 				36B613A428F7FF540037557E /* ResultCell.swift in Sources */,
 				36DD6AD828F652E90071137F /* PhotoCardDiaryApp.xcdatamodeld in Sources */,
 				36DD6ACE28F652E90071137F /* AppDelegate.swift in Sources */,
-				3670DB4C28F6EE570087812E /* EmptyCell.swift in Sources */,
 				3670DB4228F6837A0087812E /* PhotoCardData+CoreDataProperties.swift in Sources */,
 				3670DB3B28F670590087812E /* PhotoCardCell.swift in Sources */,
+				3645CD7428FBC8FB00F3A87E /* EmptyView.swift in Sources */,
 				36DD6AF128F65F770071137F /* CollectViewController.swift in Sources */,
 				3670DB5628F73B9B0087812E /* EditViewController.swift in Sources */,
 				3670DB4828F697B50087812E /* WriteViewController.swift in Sources */,

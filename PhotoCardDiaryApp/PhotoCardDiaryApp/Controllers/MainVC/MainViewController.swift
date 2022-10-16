@@ -66,9 +66,9 @@ final class MainViewController: UIViewController {
         button.clipsToBounds = true
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.masksToBounds = false
-        button.layer.shadowOffset = CGSize(width: 0, height: 4)
-        button.layer.shadowRadius = 5
-        button.layer.shadowOpacity = 0.3
+        button.layer.shadowOffset = CGSize(width: 2, height: 1)
+        button.layer.shadowRadius = 6
+        button.layer.shadowOpacity = 0.2
         button.layer.cornerRadius = 30
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(writeButtonTapped), for: .touchUpInside)
@@ -157,7 +157,6 @@ extension MainViewController {
             [
                 NSAttributedString.Key.foregroundColor: UIColor.systemGray3,
                 .font: UIFont.systemFont(ofSize: 20, weight: .bold)
-                
             ],
             for: .normal
         )
@@ -187,11 +186,11 @@ extension MainViewController {
         NSLayoutConstraint.activate([
             writeButton.trailingAnchor.constraint(
                 equalTo: view.trailingAnchor,
-                constant: -10
+                constant: -20
             ),
             writeButton.bottomAnchor.constraint(
                 equalTo: view.safeAreaLayoutGuide.bottomAnchor,
-                constant: -100
+                constant: -50
             ),
             writeButton.heightAnchor.constraint(equalToConstant: 60),
             writeButton.widthAnchor.constraint(equalToConstant: 60)

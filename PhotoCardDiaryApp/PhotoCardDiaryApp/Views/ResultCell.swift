@@ -73,12 +73,11 @@ class ResultCell: UITableViewCell {
         self.addSubview(photoImageVIew)
         
         NSLayoutConstraint.activate([
-            photoImageVIew.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            photoImageVIew.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            photoImageVIew.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
-            photoImageVIew.widthAnchor.constraint(equalToConstant: 100),
-            photoImageVIew.heightAnchor.constraint(equalToConstant: 100)
-            
+            photoImageVIew.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+            photoImageVIew.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            photoImageVIew.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+            photoImageVIew.widthAnchor.constraint(equalToConstant: 80),
+            photoImageVIew.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
     

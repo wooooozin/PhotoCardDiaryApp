@@ -52,7 +52,7 @@ final class ResultViewController: UIViewController {
     let photoManager = CoreDataManager.shared
     
     // MARK: - Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -113,7 +113,6 @@ extension ResultViewController {
         resultTableView.separatorStyle = .none
         resultTableView.separatorInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         resultTableView.register(ResultCell.self, forCellReuseIdentifier: "ResultCell")
-        resultTableView.register(ResultEmptyCell.self, forCellReuseIdentifier: "ResultEmptyCell")
     }
     
     @objc private func closeButtonTapped() {
@@ -125,35 +124,20 @@ extension ResultViewController {
 
 extension ResultViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchData.count == 0 {
-            return 1
-        } else {
-            return searchData.count
-        }
+        return searchData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if searchData.count != 0 {
-            guard let cell = resultTableView.dequeueReusableCell(
-                withIdentifier: "ResultCell",
-                for: indexPath
-            ) as? ResultCell else {
-                return UITableViewCell()
-            }
-            cell.selectionStyle = .none
-            cell.photoCardData = searchData[indexPath.row]
-            return cell
-        } else {
-            guard let cell = resultTableView.dequeueReusableCell(
-                withIdentifier: "ResultEmptyCell",
-                for: indexPath
-            ) as? ResultEmptyCell else {
-                return UITableViewCell()
-            }
-            cell.selectionStyle = .none
-            
-            return cell
+        
+        guard let cell = resultTableView.dequeueReusableCell(
+            withIdentifier: "ResultCell",
+            for: indexPath
+        ) as? ResultCell else {
+            return UITableViewCell()
         }
+        cell.selectionStyle = .none
+        cell.photoCardData = searchData[indexPath.row]
+        return cell
     }
 }
 

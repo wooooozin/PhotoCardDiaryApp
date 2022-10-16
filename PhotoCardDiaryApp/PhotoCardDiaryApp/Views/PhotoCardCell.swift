@@ -86,7 +86,7 @@ final class PhotoCardCell: CardCell {
     
     private func setupUI() {
         self.photoImageView.clipsToBounds = true
-        self.photoImageView.layer.cornerRadius = 8
+        self.photoImageView.layer.cornerRadius = 10
         
         setPhotoImageViewConstraint()
         setLabelConstraint()

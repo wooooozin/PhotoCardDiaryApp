@@ -12,7 +12,6 @@ final class CollectViewController: UIViewController {
     
     // MARK: - Property
     
-    let photoManager = CoreDataManager.shared
     private let collectCollectionView: UICollectionView = {
         let collectionCellWidth =
         (UIScreen.main.bounds.width - 50 * (CVCell.cellColumns - 1)) / CVCell.cellColumns
@@ -29,6 +28,15 @@ final class CollectViewController: UIViewController {
         return collectionView
     }()
     
+    private var emptyView: UIView = {
+        var view = EmptyView()
+        view.emptyImageView.image = UIImage(named: "noData")
+        view.emptyLabel.text = "아직 작성한 기록이 없어요.\n당신의 모든 순간을 남겨주세요."
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let photoManager = CoreDataManager.shared
     
     // MARK: - LifeCycle
     
@@ -36,18 +44,20 @@ final class CollectViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setCollectionVIew()
+        setupEmptyDataView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectCollectionView.reloadData()
+        setupEmptyDataView()
     }
 }
 
 // MARK: - Method
 
 extension CollectViewController {
-    func setupUI() {
+    private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(collectCollectionView)
         collectCollectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -69,13 +79,41 @@ extension CollectViewController {
                 constant: 0
             )
         ])
+        
+        view.addSubview(emptyView)
+        NSLayoutConstraint.activate([
+            emptyView.leadingAnchor.constraint(
+                equalTo: view.leadingAnchor,
+                constant: 0
+            ),
+            emptyView.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor,
+                constant: 0
+            ),
+            emptyView.topAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.topAnchor,
+                constant: 0
+            ),
+            emptyView.bottomAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                constant: 0
+            )
+        ])
+        
     }
     
-    func setCollectionVIew() {
+    private func setCollectionVIew() {
         collectCollectionView.dataSource = self
         collectCollectionView.delegate = self
         collectCollectionView.register(CollectCell.self, forCellWithReuseIdentifier: "CollectCell")
-        collectCollectionView.register(EmptyCell.self, forCellWithReuseIdentifier: "EmptyCell")
+    }
+    
+    private func setupEmptyDataView() {
+        if photoManager.getPhotoListFromCoreData().count != 0 {
+            emptyView.isHidden = true
+        } else {
+            emptyView.isHidden = false
+        }
     }
 }
 
@@ -87,63 +125,50 @@ extension CollectViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        if photoManager.getPhotoListFromCoreData().count == 0 {
-            return 1
-        } else {
-            return photoManager.getPhotoListFromCoreData().count
-        }
+        return photoManager.getPhotoListFromCoreData().count
     }
     
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        if photoManager.getPhotoListFromCoreData().count == 0 {
-            guard let cell = collectCollectionView.dequeueReusableCell(
-                withReuseIdentifier: "EmptyCell",
-                for: indexPath
-            ) as? EmptyCell else {
-                return UICollectionViewCell()
-            }
-            return cell
-        } else {
-            guard let cell = collectCollectionView.dequeueReusableCell(
-                withReuseIdentifier: "CollectCell",
-                for: indexPath
-            ) as? CollectCell else {
-                return UICollectionViewCell()
-            }
-            cell.photoCardData = photoManager.getPhotoListFromCoreData()[indexPath.row]
-            cell.touchUpImageViewPressed = { [weak self] (senderCell)  in
-                let vc = CardViewDetailViewController()
-                vc.photoCardData = self?.photoManager.getPhotoListFromCoreData()[indexPath.row]
-                vc.modalPresentationStyle = .fullScreen
-                self?.show(vc, sender: nil)
-            }
-            cell.longTouchUpImageViewPressed = {
-                let alert = UIAlertController()
-                let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
-                    self.photoManager.deletePhotoCardData(data: self.photoManager.getPhotoListFromCoreData()[indexPath.row]) {
-                        self.collectCollectionView.reloadData()
-                        print("삭제 완료")
-                    }
-                }
-                let updateAction = UIAlertAction(title: "수정", style: .default) { _ in
-                    let vc = EditViewController()
-                    vc.photoData = self.photoManager.getPhotoListFromCoreData()[indexPath.row]
-                    vc.modalPresentationStyle = .fullScreen
-                    self.show(vc, sender: nil)
-                }
-                let cancelAcion = UIAlertAction(title: "닫기", style: .cancel)
-                alert.addAction(updateAction)
-                alert.addAction(deleteAction)
-                alert.addAction(cancelAcion)
-                self.present(alert, animated: true)
-            }
-            return cell
+        guard let cell = collectCollectionView.dequeueReusableCell(
+            withReuseIdentifier: "CollectCell",
+            for: indexPath
+        ) as? CollectCell else {
+            return UICollectionViewCell()
         }
+        cell.photoCardData = photoManager.getPhotoListFromCoreData()[indexPath.row]
+        cell.touchUpImageViewPressed = { [weak self] (senderCell)  in
+            let vc = CardViewDetailViewController()
+            vc.photoCardData = self?.photoManager.getPhotoListFromCoreData()[indexPath.row]
+            vc.modalPresentationStyle = .fullScreen
+            self?.show(vc, sender: nil)
+        }
+        cell.longTouchUpImageViewPressed = {
+            let alert = UIAlertController()
+            let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
+                self.photoManager.deletePhotoCardData(data: self.photoManager.getPhotoListFromCoreData()[indexPath.row]) {
+                    self.viewWillAppear(true)
+                    print("삭제 완료")
+                }
+            }
+            let updateAction = UIAlertAction(title: "수정", style: .default) { _ in
+                let vc = EditViewController()
+                vc.photoData = self.photoManager.getPhotoListFromCoreData()[indexPath.row]
+                vc.modalPresentationStyle = .fullScreen
+                self.show(vc, sender: nil)
+            }
+            let cancelAcion = UIAlertAction(title: "닫기", style: .cancel)
+            alert.addAction(updateAction)
+            alert.addAction(deleteAction)
+            alert.addAction(cancelAcion)
+            self.present(alert, animated: true)
+        }
+        return cell
     }
 }
+
 
 // MARK: - UICollectionViewDelegate
 

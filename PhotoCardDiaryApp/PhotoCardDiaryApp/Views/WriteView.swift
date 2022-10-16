@@ -38,13 +38,12 @@ final class WriteView: UIView {
         return label
     }()
     
-    let mainImageView: UIImageView = {
+    lazy var mainImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
-        imageView.image = UIImage(named: "add4")
-        imageView.tintColor = .systemGray6
+        imageView.image = UIImage(named: "imgAdd")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

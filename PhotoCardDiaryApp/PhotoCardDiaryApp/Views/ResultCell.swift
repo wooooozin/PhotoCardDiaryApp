@@ -106,7 +106,9 @@ class ResultCell: UITableViewCell {
     private func configureUIwithData() {
         dateLabel.text = photoCardData?.date
         memoLabel.text = photoCardData?.memoText
-        photoImageView.image = photoCardData?.image
+        DispatchQueue.main.async {
+            self.photoImageView.image = self.photoCardData?.image
+        }
     }
 }
 

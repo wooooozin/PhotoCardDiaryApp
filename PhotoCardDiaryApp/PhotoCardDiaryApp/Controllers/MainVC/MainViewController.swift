@@ -11,12 +11,6 @@ final class MainViewController: UIViewController {
     
     // MARK: - Property
     
-    lazy var toastLabel: UILabel = {
-        let label = PopupTaostLabel(message: "저장되었습니다.")
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     private lazy var searchButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
@@ -193,23 +187,12 @@ extension MainViewController {
             writeButton.widthAnchor.constraint(equalToConstant: 60)
         ])
     }
-    
-    func setupToastLabel() {
-        view.addSubview(toastLabel)
-        
-        NSLayoutConstraint.activate([
-            toastLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100),
-            toastLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            toastLabel.heightAnchor.constraint(equalToConstant: 50),
-            toastLabel.widthAnchor.constraint(equalToConstant: 100)
-        ])
-    }
-    
+
     @objc private func writeButtonTapped() {
         let vc = WriteViewController()
         vc.modalPresentationStyle = .fullScreen
-        vc.addToastLabel = {
-            self.setupToastLabel()
+        vc.addAlertControl = {
+            self.showAlert(title: "저장", message: "저장되었습니다.")
         }
         present(vc, animated: true)
     }

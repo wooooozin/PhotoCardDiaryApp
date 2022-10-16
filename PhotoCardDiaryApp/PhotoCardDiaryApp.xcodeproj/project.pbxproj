@@ -25,7 +25,6 @@
 		36B613A428F7FF540037557E /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B613A328F7FF540037557E /* ResultCell.swift */; };
 		36B613AE28F86ECD0037557E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B613AD28F86ECD0037557E /* NetworkManager.swift */; };
 		36B613B028F86F5D0037557E /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B613AF28F86F5D0037557E /* WeatherData.swift */; };
-		36B9545528FC254800D8BA1A /* PopupToastLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B9545428FC254800D8BA1A /* PopupToastLabel.swift */; };
 		36B9545728FC57A500D8BA1A /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B9545628FC57A500D8BA1A /* PhotoModel.swift */; };
 		36DD6ACE28F652E90071137F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6ACD28F652E90071137F /* AppDelegate.swift */; };
 		36DD6AD028F652E90071137F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6ACF28F652E90071137F /* SceneDelegate.swift */; };
@@ -60,7 +59,6 @@
 		36B613A328F7FF540037557E /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		36B613AD28F86ECD0037557E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		36B613AF28F86F5D0037557E /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
-		36B9545428FC254800D8BA1A /* PopupToastLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupToastLabel.swift; sourceTree = "<group>"; };
 		36B9545628FC57A500D8BA1A /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		36DD6ACA28F652E90071137F /* PhotoCardDiaryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoCardDiaryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36DD6ACD28F652E90071137F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 				3670DB3A28F670590087812E /* PhotoCardCell.swift */,
 				36B6139728F7ABFF0037557E /* CollectCell.swift */,
 				36B613A328F7FF540037557E /* ResultCell.swift */,
-				36B9545428FC254800D8BA1A /* PopupToastLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -365,7 +362,6 @@
 				36B9545728FC57A500D8BA1A /* PhotoModel.swift in Sources */,
 				36B613AE28F86ECD0037557E /* NetworkManager.swift in Sources */,
 				36B3329E28F9B5A30021E0E0 /* UIImage+Extesion.swift in Sources */,
-				36B9545528FC254800D8BA1A /* PopupToastLabel.swift in Sources */,
 				36B6139D28F7C85F0037557E /* CalendarViewController.swift in Sources */,
 				3670DB4328F6837A0087812E /* PhotoCardData+CoreDataClass.swift in Sources */,
 				36B613A028F7E7640037557E /* ResultViewController.swift in Sources */,

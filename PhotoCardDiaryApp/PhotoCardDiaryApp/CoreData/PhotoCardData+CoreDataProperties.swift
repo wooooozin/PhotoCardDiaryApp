@@ -32,7 +32,7 @@ extension PhotoCardData {
     
     var dataImage: UIImage? {
         guard let image = self.image else { return UIImage() }
-        let cellImage = UIImage(data: image)?.resize(newWidth: 200)
+        let cellImage = UIImage(data: image)?.resize(newWidth: 250)
         return cellImage
     }
 }

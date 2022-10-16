@@ -14,6 +14,7 @@ final class EditViewController: UIViewController {
     private let writeView = WriteView()
     var photoData: PhotoCardData?
     let photoManager = CoreDataManager.shared
+    var addAlertControl: () -> Void = { }
     
     
     // MARK: - LifeCycle
@@ -75,6 +76,7 @@ extension EditViewController {
                 print("업데이트 완료")
                 self.dismiss(animated: true) {
                     self.navigationController?.popToRootViewController(animated: true)
+                    self.addAlertControl()
                 }
             }
         }

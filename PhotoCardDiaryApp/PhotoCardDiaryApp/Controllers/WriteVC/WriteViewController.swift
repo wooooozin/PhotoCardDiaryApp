@@ -21,7 +21,7 @@ final class WriteViewController: UIViewController {
     let locationManager = CLLocationManager()
     var weatherImageInt = 0
     var weatherImageString = ""
-    var addToastLabel: () -> Void = { }
+    var addAlertControl: () -> Void = { }
     
     // MARK: - LifeCycle
     
@@ -123,7 +123,7 @@ extension WriteViewController {
             print("저장완료")
             self.dismiss(animated: true) {
                 self.navigationController?.popToRootViewController(animated: true)
-                self.addToastLabel()
+                self.addAlertControl()
             }
         }
     }

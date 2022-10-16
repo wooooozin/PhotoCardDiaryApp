@@ -166,6 +166,7 @@ extension CollectViewController: UICollectionViewDataSource {
                             print(result.count)
                         }
                         print("삭제 완료")
+                        self.showAlert(title: "삭제", message: "삭제되었습니다.")
                     }
                 }
             }
@@ -173,6 +174,9 @@ extension CollectViewController: UICollectionViewDataSource {
                 let vc = EditViewController()
                 vc.photoData = self.photoCardData[indexPath.row].coreData!
                 vc.modalPresentationStyle = .fullScreen
+                vc.addAlertControl = {
+                    self.showAlert(title: "수정", message: "수정되었습니다.")
+                }
                 self.show(vc, sender: nil)
             }
             let cancelAcion = UIAlertAction(title: "닫기", style: .cancel)

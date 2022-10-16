@@ -10,6 +10,12 @@ import UIKit
 final class DetailView: UIView {
     
     // MARK: - Property
+    private let containView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     lazy var photoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -77,7 +83,7 @@ final class DetailView: UIView {
     
     
     // MARK: - Method
-
+    
     private func setupUI() {
         setImageViewConstraint()
         setDateLabelConstraint()
@@ -137,19 +143,25 @@ final class DetailView: UIView {
     }
     
     private func setMemoTextViewConstraint() {
-        self.addSubview(memoTextView)
+        self.addSubview(containView)
+        containView.addSubview(memoTextView)
         
         NSLayoutConstraint.activate([
-            memoTextView.topAnchor.constraint(
+            containView.topAnchor.constraint(
                 equalTo: photoImageView.bottomAnchor,
                 constant: 20
             ),
-            memoTextView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            memoTextView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            memoTextView.bottomAnchor.constraint(
+            containView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+            containView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+            containView.bottomAnchor.constraint(
                 equalTo: self.safeAreaLayoutGuide.bottomAnchor,
                 constant: 0
-            )
+            ),
+            
+            memoTextView.topAnchor.constraint(equalTo: containView.topAnchor, constant: 10),
+            memoTextView.leadingAnchor.constraint(equalTo: containView.leadingAnchor, constant: 20),
+            memoTextView.trailingAnchor.constraint(equalTo: containView.trailingAnchor, constant: -20),
+            memoTextView.bottomAnchor.constraint(equalTo: containView.bottomAnchor, constant: 0)
         ])
     }
 }

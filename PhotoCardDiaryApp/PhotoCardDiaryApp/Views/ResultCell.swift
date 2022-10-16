@@ -26,7 +26,7 @@ class ResultCell: UITableViewCell {
         return label
     }()
     
-    lazy var photoImageVIew: UIImageView = {
+    lazy var photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -70,14 +70,14 @@ class ResultCell: UITableViewCell {
     // MARK: - Method
     
     private func setImageViewConstraint() {
-        self.addSubview(photoImageVIew)
+        self.addSubview(photoImageView)
         
         NSLayoutConstraint.activate([
-            photoImageVIew.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
-            photoImageVIew.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
-            photoImageVIew.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
-            photoImageVIew.widthAnchor.constraint(equalToConstant: 80),
-            photoImageVIew.heightAnchor.constraint(equalToConstant: 80)
+            photoImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+            photoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            photoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+            photoImageView.widthAnchor.constraint(equalToConstant: 80),
+            photoImageView.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
     
@@ -87,7 +87,7 @@ class ResultCell: UITableViewCell {
         NSLayoutConstraint.activate([
             dateLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             dateLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
-            dateLabel.trailingAnchor.constraint(equalTo: photoImageVIew.leadingAnchor, constant: -20),
+            dateLabel.trailingAnchor.constraint(equalTo: photoImageView.leadingAnchor, constant: -20),
             dateLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
@@ -98,7 +98,7 @@ class ResultCell: UITableViewCell {
         NSLayoutConstraint.activate([
             memoLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 10),
             memoLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
-            memoLabel.trailingAnchor.constraint(equalTo: photoImageVIew.leadingAnchor, constant: -20),
+            memoLabel.trailingAnchor.constraint(equalTo: photoImageView.leadingAnchor, constant: -20),
             memoLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
             ])
     }
@@ -107,8 +107,7 @@ class ResultCell: UITableViewCell {
         dateLabel.text = photoCardData?.dateString
         memoLabel.text = photoCardData?.memoText
         guard let data = photoCardData?.image else { return }
-        photoImageVIew
-            .image = UIImage(data: data)
+        photoImageView.image = UIImage(data: data)
     }
 }
 

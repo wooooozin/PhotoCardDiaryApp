@@ -16,3 +16,21 @@ public struct CVCell {
     static let cellColumns: CGFloat = 2
     private init() { }
 }
+
+public struct Icon {
+    static let xMark = "xmark"
+    static let glass = "magnifyingglass"
+    static let write = "highlighter"
+    static let calendar = "calendar"
+    static let sunMin = "sun.min"
+    static let sunMax = ""
+    static let bolt = "cloud.bolt"
+    static let fog = "cloud.fog"
+    static let snow = "cloud.snow"
+    static let rain = "cloud.rain"
+    static let drizzle = "cloud.drizzle"
+    
+    static let add = "imgAdd"
+    static let noData = "noData"
+    static let noResult = "noResult"
+}

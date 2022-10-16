@@ -24,8 +24,6 @@ final class NetworkManager {
         completion: @escaping (Result<WeatherData, NetworkError>) -> Void
     ) {
         let urlString = "\(WeatherApi.requestUrl)&lat=\(latitude)&lon=\(longitude)"
-        print(urlString)
-        
         performRequest(with: urlString) { result in
             completion(result)
         }
@@ -52,10 +50,8 @@ final class NetworkManager {
             }
             
             if let weathers = self.parseJSON(safeData) {
-                print("Parse 실행")
                 completion(.success(weathers))
             } else {
-                print("Parse 실패")
                 completion(.failure(.parseError))
             }
         }
@@ -65,7 +61,6 @@ final class NetworkManager {
     private func parseJSON(_ weatherData: Data) -> WeatherData? {
         do {
             let parseData = try JSONDecoder().decode(WeatherData.self, from: weatherData)
-            print(parseData)
             return parseData
         } catch {
             print(error.localizedDescription)

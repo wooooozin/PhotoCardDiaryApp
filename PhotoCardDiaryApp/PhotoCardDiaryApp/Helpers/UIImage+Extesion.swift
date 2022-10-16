@@ -40,13 +40,3 @@ extension UIImage {
     }
 }
 
-extension UIViewController {
-    func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        let defaultAction =  UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
-        alert.addAction(defaultAction)
-        //메시지 창 컨트롤러를 표시
-        self.present(alert, animated: false)
-    }
-}
-

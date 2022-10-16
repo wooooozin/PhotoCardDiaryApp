@@ -86,21 +86,21 @@ extension WriteViewController {
     private func weatherIntString(_ weatherId: Int) -> String {
         switch weatherId {
         case 200...232:
-            return "cloud.bolt"
+            return Icon.bolt
         case 300...321:
-            return "cloud.drizzle"
+            return Icon.drizzle
         case 500...531:
-            return "cloud.rain"
+            return Icon.rain
         case 600...622:
-            return "cloud.snow"
+            return Icon.snow
         case 701...781:
-            return "cloud.fog"
+            return Icon.fog
         case 800:
-            return "sun.max"
+            return Icon.sunMax
         case 801...804:
-            return "cloud.bolt"
+            return Icon.bolt
         default:
-            return "sun.min"
+            return Icon.sunMin
         }
     }
     
@@ -116,11 +116,10 @@ extension WriteViewController {
         let image = fixImage.pngData()
         var weather = UIImage().pngData()
         guard let safeWeather = UIImage(systemName: weatherImageString)?.withTintColor(.white).pngData() else {
-            return weather = UIImage(systemName: "sun.min")?.withTintColor(.white).pngData()
+            return weather = UIImage(systemName: Icon.sunMin)?.withTintColor(.white).pngData()
         }
         weather = safeWeather
         photoManager.savePhotoCardData(title: title, memoText: memoText, image: image, weather: weather) {
-            print("저장완료")
             self.dismiss(animated: true) {
                 self.navigationController?.popToRootViewController(animated: true)
                 self.addAlertControl()
@@ -129,7 +128,6 @@ extension WriteViewController {
     }
     
     @objc private func touchUpImageView() {
-        print(#function)
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
@@ -171,7 +169,6 @@ extension WriteViewController: CLLocationManagerDelegate {
                 switch result {
                 case .success(let result):
                     self.weatherImageInt = result.weather[0].id
-                    print(self.weatherImageInt)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

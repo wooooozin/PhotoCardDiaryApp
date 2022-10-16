@@ -73,7 +73,6 @@ extension EditViewController {
             photoData.title = writeView.titleTextField.text
             photoData.image = writeView.mainImageView.image?.pngData()
             photoManager.updatePhotoCardData(newPhotoData: photoData) {
-                print("업데이트 완료")
                 self.dismiss(animated: true) {
                     self.navigationController?.popToRootViewController(animated: true)
                     self.addAlertControl()
@@ -83,7 +82,6 @@ extension EditViewController {
     }
     
     @objc private func touchUpImageView() {
-        print(#function)
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true

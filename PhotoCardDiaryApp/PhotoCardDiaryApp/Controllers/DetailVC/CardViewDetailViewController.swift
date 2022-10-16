@@ -46,7 +46,6 @@ final class CardViewDetailViewController: UIViewController {
     }
     
     @objc func closeButtonTapped() {
-        print(#function)
         self.dismiss(animated: true)
     }
 }

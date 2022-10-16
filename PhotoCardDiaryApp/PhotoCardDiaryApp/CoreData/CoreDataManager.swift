@@ -46,19 +46,19 @@ final class CoreDataManager {
         let query = text
         let request: NSFetchRequest<PhotoCardData> = PhotoCardData.fetchRequest()
         request.predicate = NSPredicate(format: "memoText CONTAINS %@", query)
-        do{
-            let objects = try self.context?.fetch(request)
-            photoList = objects ?? []
-            photoList.forEach {
-                photoModel.append(PhotoModel(
-                    title: $0.title, date: $0.dateString, memoText: $0.memoText, image: $0.dataImage, weather: $0.weather, coreData: $0)
-                )
+            do{
+                let objects = try self.context?.fetch(request)
+                photoList = objects ?? []
+                photoList.forEach {
+                    photoModel.append(PhotoModel(
+                        title: $0.title, date: $0.dateString, memoText: $0.memoText, image: $0.dataImage, weather: $0.weather, coreData: $0)
+                    )
+                }
+            } catch {
+                print(error)
             }
-        } catch {
-            print(error)
-        }
         
-        return photoModel
+            return photoModel
     }
     
     func getPhotoListFromCoreData(complition: (([PhotoModel]) -> Void)?) {

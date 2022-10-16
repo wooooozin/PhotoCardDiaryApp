@@ -30,7 +30,7 @@ final class CollectViewController: UIViewController {
     
     private var emptyView: UIView = {
         var view = EmptyView()
-        view.emptyImageView.image = UIImage(named: "noData")
+        view.emptyImageView.image = UIImage(named: Icon.noData)
         view.emptyLabel.text = "아직 작성한 기록이 없어요.\n당신의 모든 순간을 남겨주세요."
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -163,9 +163,7 @@ extension CollectViewController: UICollectionViewDataSource {
                     self.photoManager.deletePhotoCardData(data: data) {
                         self.photoManager.getPhotoListFromCoreData { [weak self] result in
                             self?.photoCardData = result
-                            print(result.count)
                         }
-                        print("삭제 완료")
                         self.showAlert(title: "삭제", message: "삭제되었습니다.")
                     }
                 }
@@ -194,7 +192,6 @@ extension CollectViewController: UICollectionViewDataSource {
 
 extension CollectViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(#function)
         let vc = CardViewDetailViewController()
         vc.photoCardData = photoCardData[indexPath.row]
         vc.modalPresentationStyle = .fullScreen

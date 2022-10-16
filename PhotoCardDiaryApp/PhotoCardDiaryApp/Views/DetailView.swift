@@ -27,7 +27,7 @@ final class DetailView: UIView {
     
     lazy var closeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        button.setImage(UIImage(systemName: Icon.xMark), for: .normal)
         button.tintColor = .black
         button.backgroundColor = .white
         button.clipsToBounds = true

@@ -13,7 +13,7 @@ final class MainViewController: UIViewController {
     
     private lazy var searchButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        button.setImage(UIImage(systemName: Icon.glass), for: .normal)
         button.sizeToFit()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
@@ -51,7 +51,7 @@ final class MainViewController: UIViewController {
     
     private lazy var writeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "highlighter"), for: .normal)
+        button.setImage(UIImage(systemName: Icon.glass), for: .normal)
         button.tintColor = .black
         button.backgroundColor = .white
         button.clipsToBounds = true
@@ -72,7 +72,6 @@ final class MainViewController: UIViewController {
     
     var currentPage: Int = 0 {
         didSet {
-            print(oldValue, self.currentPage)
             let direction: UIPageViewController.NavigationDirection =
             oldValue <= self.currentPage ? .forward : .reverse
             
@@ -198,7 +197,6 @@ extension MainViewController {
     }
     
     @objc private func naviRightButtonTapped() {
-        print(#function)
         let vc = CalendarViewController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)

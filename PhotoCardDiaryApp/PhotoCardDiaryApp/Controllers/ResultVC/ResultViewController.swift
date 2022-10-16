@@ -22,7 +22,7 @@ final class ResultViewController: UIViewController {
     
     private lazy var emptyView: UIView = {
         var view = EmptyView()
-        view.emptyImageView.image = UIImage(named: "noResult")
+        view.emptyImageView.image = UIImage(named: Icon.noResult)
         view.emptyLabel.text = "검색 결과가 없어요."
         view.translatesAutoresizingMaskIntoConstraints = false
         return view

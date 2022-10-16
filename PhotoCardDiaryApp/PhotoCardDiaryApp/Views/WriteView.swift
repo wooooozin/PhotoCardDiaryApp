@@ -43,7 +43,7 @@ final class WriteView: UIView {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
-        imageView.image = UIImage(named: "imgAdd")
+        imageView.image = UIImage(named: Icon.add)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

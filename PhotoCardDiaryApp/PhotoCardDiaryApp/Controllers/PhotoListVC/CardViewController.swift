@@ -8,13 +8,24 @@
 import UIKit
 import VerticalCardSwiper
 
-class CardViewController: UIViewController {
+final class CardViewController: UIViewController {
     
     // MARK: - Property
     let photoManager = CoreDataManager.shared
-    private let photoCardCollectioView = VerticalCardSwiper()
     
-    private var emptyView: UIView = {
+    private let photoCardCollectioView: VerticalCardSwiper = {
+        let view = VerticalCardSwiper()
+        view.sideInset = 30
+        view.firstItemTransform = 0
+        view.stackedCardsCount = 0
+        view.cardSpacing = 30
+        view.visibleNextCardHeight = 70
+        view.isStackOnBottom = false
+        view.isSideSwipingEnabled = false
+        return view
+    }()
+    
+    private lazy var emptyView: UIView = {
         var view = EmptyView()
         view.emptyImageView.image = UIImage(named: "noData")
         view.emptyLabel.text = "아직 작성한 기록이 없어요.\n당신의 모든 순간을 남겨주세요."
@@ -87,13 +98,6 @@ extension CardViewController {
     
     private func setPhotoCardColloctioView() {
         photoCardCollectioView.datasource = self
-        photoCardCollectioView.sideInset = 30
-        photoCardCollectioView.firstItemTransform = 0
-        photoCardCollectioView.stackedCardsCount = 0
-        photoCardCollectioView.cardSpacing = 30
-        photoCardCollectioView.visibleNextCardHeight = 70
-        photoCardCollectioView.isStackOnBottom = false
-        photoCardCollectioView.isSideSwipingEnabled = false
         photoCardCollectioView.register(
             PhotoCardCell.self,
             forCellWithReuseIdentifier: "PhotoCardCell"

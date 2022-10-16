@@ -13,11 +13,19 @@ final class ResultViewController: UIViewController {
     
     lazy private var closeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("닫기", for: .normal)
+        button.setTitle("취소", for: .normal)
         button.tintColor = .black
         button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
+    }()
+    
+    private lazy var emptyView: UIView = {
+        var view = EmptyView()
+        view.emptyImageView.image = UIImage(named: "noResult")
+        view.emptyLabel.text = "검색 결과가 없어요."
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     private lazy var searchBar: UISearchBar = {
@@ -72,8 +80,8 @@ extension ResultViewController {
     
     private func setupTopViewConstraint() {
         view.addSubview(topStackView)
-        topStackView.addArrangedSubview(closeButton)
         topStackView.addArrangedSubview(searchBar)
+        topStackView.addArrangedSubview(closeButton)
         
         NSLayoutConstraint.activate([
             topStackView.topAnchor.constraint(
@@ -105,6 +113,26 @@ extension ResultViewController {
                 constant: 0
             )
         ])
+        
+        view.addSubview(emptyView)
+        NSLayoutConstraint.activate([
+            emptyView.leadingAnchor.constraint(
+                equalTo: view.leadingAnchor,
+                constant: 0
+            ),
+            emptyView.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor,
+                constant: 0
+            ),
+            emptyView.topAnchor.constraint(
+                equalTo: topStackView.bottomAnchor,
+                constant: 0
+            ),
+            emptyView.bottomAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                constant: 0
+            )
+        ])
     }
     
     private func setupTableView() {
@@ -113,6 +141,17 @@ extension ResultViewController {
         resultTableView.separatorStyle = .none
         resultTableView.separatorInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         resultTableView.register(ResultCell.self, forCellReuseIdentifier: "ResultCell")
+    }
+    
+    private func setupEmptyDataView() {
+        if searchData.count == 0 {
+            emptyView.isHidden = false
+            resultTableView.isHidden = true
+            
+        } else {
+            emptyView.isHidden = true
+            resultTableView.isHidden = false
+        }
     }
     
     @objc private func closeButtonTapped() {
@@ -128,7 +167,6 @@ extension ResultViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = resultTableView.dequeueReusableCell(
             withIdentifier: "ResultCell",
             for: indexPath
@@ -177,6 +215,7 @@ extension ResultViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.view.endEditing(true)
+        setupEmptyDataView()
     }
 }
 

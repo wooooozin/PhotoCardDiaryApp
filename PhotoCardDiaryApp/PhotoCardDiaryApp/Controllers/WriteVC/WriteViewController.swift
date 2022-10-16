@@ -9,7 +9,7 @@ import UIKit
 import PhotosUI
 import CoreLocation
 
-class WriteViewController: UIViewController {
+final class WriteViewController: UIViewController {
     
     // MARK: - Property
     
@@ -111,7 +111,7 @@ extension WriteViewController {
         let memoText = writeView.memoTextView.text
         let title = writeView.titleTextField.text
         let fixImage = fixOrientation(img: writeView.mainImageView.image ?? UIImage())
-        let image = fixImage.decodedImage().pngData()
+        let image = fixImage.pngData()
         var weather = UIImage().pngData()
         guard let safeWeather = UIImage(systemName: weatherImageString)?.withTintColor(.white).pngData() else {
             return weather = UIImage(systemName: "sun.min")?.withTintColor(.white).pngData()

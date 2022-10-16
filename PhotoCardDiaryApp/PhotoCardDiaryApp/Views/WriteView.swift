@@ -21,7 +21,7 @@ final class WriteView: UIView {
     
     lazy var addButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("완료", for: .normal)
+        button.setTitle("저장", for: .normal)
         button.tintColor = .black
         button.isEnabled = false
         button.translatesAutoresizingMaskIntoConstraints = false

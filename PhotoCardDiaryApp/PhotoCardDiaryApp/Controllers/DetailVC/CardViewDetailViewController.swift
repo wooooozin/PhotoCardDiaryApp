@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CardViewDetailViewController: UIViewController {
+final class CardViewDetailViewController: UIViewController {
 
     // MARK: - Property
 

@@ -114,6 +114,23 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		36A6D5A028FC909A0050A4A3 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				36B6139928F7BB6E0037557E /* Constants.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		36A6D5A128FC90C10050A4A3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				36B3329D28F9B5A30021E0E0 /* UIImage+Extesion.swift */,
+				36A6D59E28FC8A640050A4A3 /* UIViewController+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		36B6139B28F7C8230037557E /* CalendarVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,7 +168,8 @@
 		36DD6ACC28F652E90071137F /* PhotoCardDiaryApp */ = {
 			isa = PBXGroup;
 			children = (
-				36DD6AE728F6533D0071137F /* Helpers */,
+				36A6D5A028FC909A0050A4A3 /* Configuration */,
+				36A6D5A128FC90C10050A4A3 /* Extension */,
 				3670DB5428F71CD10087812E /* Network */,
 				36DD6AE628F653370071137F /* CoreData */,
 				36DD6AE528F653320071137F /* Views */,
@@ -201,16 +219,6 @@
 				36B9545628FC57A500D8BA1A /* PhotoModel.swift */,
 			);
 			path = CoreData;
-			sourceTree = "<group>";
-		};
-		36DD6AE728F6533D0071137F /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				36B6139928F7BB6E0037557E /* Constants.swift */,
-				36B3329D28F9B5A30021E0E0 /* UIImage+Extesion.swift */,
-				36A6D59E28FC8A640050A4A3 /* UIViewController+Extension.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		36DD6AEC28F65E9B0071137F /* MainVC */ = {

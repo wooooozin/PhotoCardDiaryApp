@@ -51,7 +51,7 @@ final class MainViewController: UIViewController {
     
     private lazy var writeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: Icon.glass), for: .normal)
+        button.setImage(UIImage(systemName: Icon.write), for: .normal)
         button.tintColor = .black
         button.backgroundColor = .white
         button.clipsToBounds = true

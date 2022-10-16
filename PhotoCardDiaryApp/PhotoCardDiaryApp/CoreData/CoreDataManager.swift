@@ -16,54 +16,75 @@ final class CoreDataManager {
     lazy var context = appDelegate?.persistentContainer.viewContext
     let modelName: String = "PhotoCardData"
     
-    func searchDatePhotoListFromCoreData(date: Date) -> [PhotoCardData] {
+    func searchDatePhotoListFromCoreData(date: Date) -> [PhotoModel] {
         var photoList: [PhotoCardData] = []
+        var photoModel: [PhotoModel] = []
         let request: NSFetchRequest<PhotoCardData> = PhotoCardData.fetchRequest()
         request.predicate = NSPredicate(
             format: "date >= %@ && date <= %@",
             Calendar.current.startOfDay(for: date) as CVarArg,
             Calendar.current.startOfDay(for: date + 86400) as CVarArg
-        ) 
+        )
         
         do{
             let objects = try context?.fetch(request)
             photoList = objects ?? []
+            photoList.forEach {
+                photoModel.append(PhotoModel(
+                    title: $0.title, date: $0.dateString, memoText: $0.memoText, image: $0.dataImage, weather: $0.weather, coreData: $0)
+                )
+            }
         } catch {
             print(error)
         }
-        return photoList
+        return photoModel
     }
     
-    func searchPhotoListFromCoreData(text: String) -> [PhotoCardData] {
+    func searchPhotoListFromCoreData(text: String) -> [PhotoModel] {
         var photoList: [PhotoCardData] = []
+        var photoModel: [PhotoModel] = []
         let query = text
         let request: NSFetchRequest<PhotoCardData> = PhotoCardData.fetchRequest()
         request.predicate = NSPredicate(format: "memoText CONTAINS %@", query)
         do{
             let objects = try context?.fetch(request)
             photoList = objects ?? []
+            photoList.forEach {
+                photoModel.append(PhotoModel(
+                    title: $0.title, date: $0.dateString, memoText: $0.memoText, image: $0.dataImage, weather: $0.weather, coreData: $0)
+                )
+            }
         } catch {
             print(error)
         }
-        return photoList
+        return photoModel
     }
     
-    func getPhotoListFromCoreData() -> [PhotoCardData] {
-        var photoList: [PhotoCardData] = []
+    func getPhotoListFromCoreData(complition: (([PhotoModel]) -> Void)?) {
+        var photoList: [PhotoModel] = []
         if let context = context {
             let request = NSFetchRequest<NSManagedObject>(entityName: self.modelName)
             let dateOrder = NSSortDescriptor(key: "date", ascending: false)
             request.sortDescriptors = [dateOrder]
-            
-            do {
-                if let fetchedPhotoCardData = try context.fetch(request) as? [PhotoCardData] {
-                    photoList = fetchedPhotoCardData
+            DispatchQueue.global().async {
+                do {
+                    if let fetchedPhotoCardData = try context.fetch(request) as? [PhotoCardData] {
+                        fetchedPhotoCardData.forEach {
+                            photoList.append(
+                                PhotoModel(
+                                    title: $0.title, date: $0.dateString, memoText: $0.memoText, image: $0.dataImage, weather: $0.weather, coreData: $0
+                                )
+                            )
+                        }
+                        complition?(photoList)
+                        
+                    }
+                } catch {
+                    print("코어데이터 불러 오기 실패")
+                    complition?([])
                 }
-            } catch {
-                print("코어데이터 불러 오기 실패")
             }
         }
-        return photoList
     }
     
     func savePhotoCardData(

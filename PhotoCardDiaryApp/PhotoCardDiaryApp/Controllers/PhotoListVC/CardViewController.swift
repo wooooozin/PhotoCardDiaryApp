@@ -33,6 +33,15 @@ final class CardViewController: UIViewController {
         return view
     }()
     
+    var photoCardData: [PhotoModel] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.setupEmptyDataView()
+                self.photoCardCollectioView.reloadData()
+            }
+        }
+    }
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -44,8 +53,11 @@ final class CardViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-            photoCardCollectioView.reloadData()
-            setupEmptyDataView()
+        setupEmptyDataView()
+        photoManager.getPhotoListFromCoreData { [weak self] result in
+            self?.photoCardData = result
+            print(result.count)
+        }
     }
 }
 
@@ -105,7 +117,7 @@ extension CardViewController {
     }
     
     private func setupEmptyDataView() {
-        if photoManager.getPhotoListFromCoreData().count == 0 {
+        if photoCardData.count == 0 {
             emptyView.isHidden = false
         } else {
             emptyView.isHidden = true
@@ -119,7 +131,7 @@ extension CardViewController: VerticalCardSwiperDatasource {
     func numberOfCards(
         verticalCardSwiperView: VerticalCardSwiperView
     ) -> Int {
-        return photoManager.getPhotoListFromCoreData().count
+        return photoCardData.count
     }
     
     func cardForItemAt(
@@ -132,7 +144,7 @@ extension CardViewController: VerticalCardSwiperDatasource {
         ) as? PhotoCardCell else {
             return CardCell()
         }
-        let photoData = photoManager.getPhotoListFromCoreData()
+        let photoData = photoCardData
         cell.photoCardData = photoData[index]
         cell.touchUpImageViewPressed = { [weak self] (senderCell) in
             let vc = CardViewDetailViewController()
@@ -143,14 +155,19 @@ extension CardViewController: VerticalCardSwiperDatasource {
         cell.longTouchUpImageViewPressed = {
             let alert = UIAlertController()
             let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
-                self.photoManager.deletePhotoCardData(data: photoData[index]) {
-                    self.viewWillAppear(true)
-                    print("삭제 완료")
+                if let data = photoData[index].coreData {
+                    self.photoManager.deletePhotoCardData(data: data) {
+                        self.photoManager.getPhotoListFromCoreData { [weak self] result in
+                            self?.photoCardData = result
+                            print(result.count)
+                        }
+                        print("삭제 완료")
+                    }
                 }
             }
             let updateAction = UIAlertAction(title: "수정", style: .default) { _ in
                 let vc = EditViewController()
-                vc.photoData = photoData[index]
+                vc.photoData = photoData[index].coreData
                 vc.modalPresentationStyle = .fullScreen
                 self.show(vc, sender: nil)
             }

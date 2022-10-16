@@ -57,7 +57,7 @@ final class PhotoCardCell: CardCell {
         return label
     }()
     
-    var photoCardData: PhotoCardData? {
+    var photoCardData: PhotoModel? {
         didSet {
             configureUIwithData()
         }
@@ -144,11 +144,13 @@ final class PhotoCardCell: CardCell {
     
     private func configureUIwithData() {
         titleLabel.text = photoCardData?.title
-        dateLabel.text = photoCardData?.dateString
-        guard let data = photoCardData?.image,
-              let weatherData = photoCardData?.weather else { return }
-        photoImageView.image = UIImage(data: data)?.darkened()
-        weatherImage.image = UIImage(data: weatherData)
+        dateLabel.text = photoCardData?.date
+        DispatchQueue.main.async {
+            guard let data = self.photoCardData?.image,
+                  let weatherData = self.photoCardData?.weather else { return }
+            self.photoImageView.image = self.photoCardData?.image?.darkened()
+            self.weatherImage.image = UIImage(data: weatherData)
+        }
     }
     
     @objc func touchUpImageView() {

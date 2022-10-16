@@ -38,6 +38,15 @@ final class CollectViewController: UIViewController {
     
     let photoManager = CoreDataManager.shared
     
+    var photoCardData: [PhotoModel] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.setupEmptyDataView()
+                self.collectCollectionView.reloadData()
+            }
+        }
+    }
+    
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -49,8 +58,10 @@ final class CollectViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        collectCollectionView.reloadData()
         setupEmptyDataView()
+        photoManager.getPhotoListFromCoreData { [weak self] result in
+            self?.photoCardData = result
+        }
     }
 }
 
@@ -109,7 +120,7 @@ extension CollectViewController {
     }
     
     private func setupEmptyDataView() {
-        if photoManager.getPhotoListFromCoreData().count != 0 {
+        if photoCardData.count != 0 {
             emptyView.isHidden = true
         } else {
             emptyView.isHidden = false
@@ -125,7 +136,7 @@ extension CollectViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return photoManager.getPhotoListFromCoreData().count
+        return photoCardData.count
     }
     
     func collectionView(
@@ -138,24 +149,29 @@ extension CollectViewController: UICollectionViewDataSource {
         ) as? CollectCell else {
             return UICollectionViewCell()
         }
-        cell.photoCardData = photoManager.getPhotoListFromCoreData()[indexPath.row]
+        cell.photoCardData = photoCardData[indexPath.row]
         cell.touchUpImageViewPressed = { [weak self] (senderCell)  in
             let vc = CardViewDetailViewController()
-            vc.photoCardData = self?.photoManager.getPhotoListFromCoreData()[indexPath.row]
+            vc.photoCardData = self?.photoCardData[indexPath.row]
             vc.modalPresentationStyle = .fullScreen
             self?.show(vc, sender: nil)
         }
         cell.longTouchUpImageViewPressed = {
             let alert = UIAlertController()
             let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
-                self.photoManager.deletePhotoCardData(data: self.photoManager.getPhotoListFromCoreData()[indexPath.row]) {
-                    self.viewWillAppear(true)
-                    print("삭제 완료")
+                if let data = self.photoCardData[indexPath.row].coreData {
+                    self.photoManager.deletePhotoCardData(data: data) {
+                        self.photoManager.getPhotoListFromCoreData { [weak self] result in
+                            self?.photoCardData = result
+                            print(result.count)
+                        }
+                        print("삭제 완료")
+                    }
                 }
             }
             let updateAction = UIAlertAction(title: "수정", style: .default) { _ in
                 let vc = EditViewController()
-                vc.photoData = self.photoManager.getPhotoListFromCoreData()[indexPath.row]
+                vc.photoData = self.photoCardData[indexPath.row].coreData!
                 vc.modalPresentationStyle = .fullScreen
                 self.show(vc, sender: nil)
             }
@@ -176,7 +192,7 @@ extension CollectViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(#function)
         let vc = CardViewDetailViewController()
-        vc.photoCardData = photoManager.getPhotoListFromCoreData()[indexPath.row]
+        vc.photoCardData = photoCardData[indexPath.row]
         vc.modalPresentationStyle = .fullScreen
         self.show(vc, sender: nil)
     }

@@ -11,6 +11,12 @@ final class MainViewController: UIViewController {
     
     // MARK: - Property
     
+    lazy var toastLabel: UILabel = {
+        let label = PopupTaostLabel(message: "저장되었습니다.")
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private lazy var searchButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
@@ -18,7 +24,6 @@ final class MainViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
         return button
-
     }()
     
     private let segmentedControl: UISegmentedControl = {
@@ -86,6 +91,7 @@ final class MainViewController: UIViewController {
         }
     }
     
+    let photoManager = CoreDataManager.shared
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -188,9 +194,23 @@ extension MainViewController {
         ])
     }
     
+    func setupToastLabel() {
+        view.addSubview(toastLabel)
+        
+        NSLayoutConstraint.activate([
+            toastLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100),
+            toastLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            toastLabel.heightAnchor.constraint(equalToConstant: 50),
+            toastLabel.widthAnchor.constraint(equalToConstant: 100)
+        ])
+    }
+    
     @objc private func writeButtonTapped() {
         let vc = WriteViewController()
         vc.modalPresentationStyle = .fullScreen
+        vc.addToastLabel = {
+            self.setupToastLabel()
+        }
         present(vc, animated: true)
     }
     

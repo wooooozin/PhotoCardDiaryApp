@@ -12,7 +12,7 @@ final class CardViewDetailViewController: UIViewController {
     // MARK: - Property
 
     private let detailView = DetailView()
-    var photoCardData: PhotoCardData?
+    var photoCardData: PhotoModel?
     let photoManager = CoreDataManager.shared
     
     // MARK: - Lifecycle
@@ -31,10 +31,9 @@ final class CardViewDetailViewController: UIViewController {
     //MARK: - Method
     
     private func configureUIwithData() {
-        guard let data = photoCardData?.image else { return }
-        detailView.photoImageView.image = UIImage(data: data)
+        detailView.photoImageView.image = photoCardData?.image
         detailView.memoTextView.text = photoCardData?.memoText
-        detailView.dateLabel.text = photoCardData?.dateString
+        detailView.dateLabel.text = photoCardData?.date
         detailView.titleLabel.text = photoCardData?.title
     }
     

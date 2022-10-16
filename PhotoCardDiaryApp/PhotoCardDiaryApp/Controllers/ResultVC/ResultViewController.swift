@@ -56,7 +56,7 @@ final class ResultViewController: UIViewController {
         return tableView
     }()
     
-    private var searchData: [PhotoCardData] = []
+    private var searchData: [PhotoModel] = []
     let photoManager = CoreDataManager.shared
     
     // MARK: - Lifecycle

@@ -32,7 +32,7 @@ final class CollectCell: UICollectionViewCell {
         return label
     }()
     
-    var photoCardData: PhotoCardData? {
+    var photoCardData: PhotoModel? {
         didSet {
             configureUIwithData()
         }
@@ -82,9 +82,11 @@ final class CollectCell: UICollectionViewCell {
     }
     
     private func configureUIwithData() {
-        dateLabel.text = photoCardData?.dateString
-        guard let data = photoCardData?.image else { return }
-        mainImageView.image = UIImage(data: data)?.resize(newWidth: 70).darkened()
+        dateLabel.text = photoCardData?.date
+        DispatchQueue.main.async {
+            guard let data = self.photoCardData?.image else { return }
+            self.mainImageView.image = self.photoCardData?.image?.darkened()
+        }
     }
     
     @objc private func imageViewTapped() {

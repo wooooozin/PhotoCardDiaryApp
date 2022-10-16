@@ -6,7 +6,7 @@
 //
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 
@@ -28,5 +28,11 @@ extension PhotoCardData {
         guard let date = self.date else { return "" }
         let savedDateString = myFormatter.string(from: date)
         return savedDateString
+    }
+    
+    var dataImage: UIImage? {
+        guard let image = self.image else { return UIImage() }
+        let cellImage = UIImage(data: image)?.resize(newWidth: 200)
+        return cellImage
     }
 }

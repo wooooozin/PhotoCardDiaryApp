@@ -33,7 +33,7 @@ class ResultCell: UITableViewCell {
         return imageView
     }()
     
-    var photoCardData: PhotoCardData? {
+    var photoCardData: PhotoModel? {
         didSet {
             configureUIwithData()
         }
@@ -104,10 +104,9 @@ class ResultCell: UITableViewCell {
     }
     
     private func configureUIwithData() {
-        dateLabel.text = photoCardData?.dateString
+        dateLabel.text = photoCardData?.date
         memoLabel.text = photoCardData?.memoText
-        guard let data = photoCardData?.image else { return }
-        photoImageView.image = UIImage(data: data)?.resize(newWidth: 80).darkened()
+        photoImageView.image = photoCardData?.image
     }
 }
 

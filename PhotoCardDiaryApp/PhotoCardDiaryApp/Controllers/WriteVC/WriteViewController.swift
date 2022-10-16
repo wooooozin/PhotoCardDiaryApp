@@ -14,12 +14,14 @@ final class WriteViewController: UIViewController {
     // MARK: - Property
     
     private let writeView = WriteView()
+    
     var photoData: PhotoCardData?
     let photoManager = CoreDataManager.shared
     let weatherMager = NetworkManager.shared
     let locationManager = CLLocationManager()
     var weatherImageInt = 0
     var weatherImageString = ""
+    var addToastLabel: () -> Void = { }
     
     // MARK: - LifeCycle
     
@@ -121,6 +123,7 @@ extension WriteViewController {
             print("저장완료")
             self.dismiss(animated: true) {
                 self.navigationController?.popToRootViewController(animated: true)
+                self.addToastLabel()
             }
         }
     }

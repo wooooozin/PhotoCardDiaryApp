@@ -17,8 +17,12 @@ final class CollectCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8
         imageView.isUserInteractionEnabled = true
-        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageViewTapped)))
-        imageView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(imageViewLongTapped)))
+        imageView.addGestureRecognizer(
+            UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
+        )
+        imageView.addGestureRecognizer(
+            UILongPressGestureRecognizer(target: self, action: #selector(imageViewLongTapped))
+        )
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -75,7 +79,10 @@ final class CollectCell: UICollectionViewCell {
         self.addSubview(dateLabel)
         
         NSLayoutConstraint.activate([
-            dateLabel.trailingAnchor.constraint(equalTo: mainImageView.trailingAnchor, constant: -10),
+            dateLabel.trailingAnchor.constraint(
+                equalTo: mainImageView.trailingAnchor,
+                constant: -10
+            ),
             dateLabel.bottomAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: -10),
             dateLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
@@ -84,7 +91,6 @@ final class CollectCell: UICollectionViewCell {
     private func configureUIwithData() {
         dateLabel.text = photoCardData?.date
         DispatchQueue.main.async {
-            guard let data = self.photoCardData?.image else { return }
             self.mainImageView.image = self.photoCardData?.image?.darkened()
         }
     }

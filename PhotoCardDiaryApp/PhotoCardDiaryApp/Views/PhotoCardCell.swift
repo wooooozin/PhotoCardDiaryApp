@@ -146,8 +146,7 @@ final class PhotoCardCell: CardCell {
         titleLabel.text = photoCardData?.title
         dateLabel.text = photoCardData?.date
         DispatchQueue.main.async {
-            guard let data = self.photoCardData?.image,
-                  let weatherData = self.photoCardData?.weather else { return }
+            guard let weatherData = self.photoCardData?.weather else { return }
             self.photoImageView.image = self.photoCardData?.image?.darkened()
             self.weatherImage.image = UIImage(data: weatherData)
         }

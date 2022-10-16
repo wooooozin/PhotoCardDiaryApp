@@ -30,8 +30,15 @@ final class CoreDataManager {
             let objects = try context?.fetch(request)
             photoList = objects ?? []
             photoList.forEach {
-                photoModel.append(PhotoModel(
-                    title: $0.title, date: $0.dateString, memoText: $0.memoText, image: $0.dataImage, weather: $0.weather, coreData: $0)
+                photoModel.append(
+                    PhotoModel(
+                    title: $0.title,
+                    date: $0.dateString,
+                    memoText: $0.memoText,
+                    image: $0.dataImage,
+                    weather: $0.weather,
+                    coreData: $0
+                    )
                 )
             }
         } catch {
@@ -50,8 +57,15 @@ final class CoreDataManager {
                 let objects = try self.context?.fetch(request)
                 photoList = objects ?? []
                 photoList.forEach {
-                    photoModel.append(PhotoModel(
-                        title: $0.title, date: $0.dateString, memoText: $0.memoText, image: $0.dataImage, weather: $0.weather, coreData: $0)
+                    photoModel.append(
+                        PhotoModel(
+                        title: $0.title,
+                        date: $0.dateString,
+                        memoText: $0.memoText,
+                        image: $0.dataImage,
+                        weather: $0.weather,
+                        coreData: $0
+                        )
                     )
                 }
             } catch {
@@ -73,7 +87,12 @@ final class CoreDataManager {
                         fetchedPhotoCardData.forEach {
                             photoList.append(
                                 PhotoModel(
-                                    title: $0.title, date: $0.dateString, memoText: $0.memoText, image: $0.dataImage, weather: $0.weather, coreData: $0
+                                    title: $0.title,
+                                    date: $0.dateString,
+                                    memoText: $0.memoText,
+                                    image: $0.dataImage,
+                                    weather: $0.weather,
+                                    coreData: $0
                                 )
                             )
                         }

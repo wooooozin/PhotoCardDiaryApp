@@ -115,11 +115,18 @@ extension WriteViewController {
         let fixImage = fixOrientation(img: writeView.mainImageView.image ?? UIImage())
         let image = fixImage.pngData()
         var weather = UIImage().pngData()
-        guard let safeWeather = UIImage(systemName: weatherImageString)?.withTintColor(.white).pngData() else {
+        guard let safeWeather = UIImage(
+            systemName: weatherImageString)?.withTintColor(.white
+            ).pngData() else {
             return weather = UIImage(systemName: Icon.sunMin)?.withTintColor(.white).pngData()
         }
         weather = safeWeather
-        photoManager.savePhotoCardData(title: title, memoText: memoText, image: image, weather: weather) {
+        photoManager.savePhotoCardData(
+            title: title,
+            memoText: memoText,
+            image: image,
+            weather: weather
+        ) {
             self.dismiss(animated: true) {
                 self.navigationController?.popToRootViewController(animated: true)
                 self.addAlertControl()

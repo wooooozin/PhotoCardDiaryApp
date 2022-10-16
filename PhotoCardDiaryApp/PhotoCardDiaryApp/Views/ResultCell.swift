@@ -107,7 +107,7 @@ class ResultCell: UITableViewCell {
         dateLabel.text = photoCardData?.dateString
         memoLabel.text = photoCardData?.memoText
         guard let data = photoCardData?.image else { return }
-        photoImageView.image = UIImage(data: data)
+        photoImageView.image = UIImage(data: data)?.resize(newWidth: 80).darkened()
     }
 }
 

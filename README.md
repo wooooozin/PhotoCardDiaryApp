@@ -29,7 +29,7 @@
 - 사용 기술 및 라이브러리:  `UIKit`, `URLSession`, `MVC`, `CoreData`, `VerticalCardSwiper`, `FSCalendar`
 <br>
 
-#추가 기능 구현 예정
+# 추가 기능 구현 예정
 - 설정 기능 
 <br>
 

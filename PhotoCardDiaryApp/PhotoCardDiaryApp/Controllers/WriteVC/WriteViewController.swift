@@ -35,14 +35,6 @@ final class WriteViewController: UIViewController {
         setupTapGestures()
         setupLocation()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        let window = view.window!
-        let gr0 = window.gestureRecognizers![0] as UIGestureRecognizer
-        let gr1 = window.gestureRecognizers![1] as UIGestureRecognizer
-        gr0.delaysTouchesBegan = false
-        gr1.delaysTouchesBegan = false
-    }
 }
 
 // MARK: - SetUI , Method

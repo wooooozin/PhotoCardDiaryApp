@@ -43,6 +43,7 @@ final class CollectViewController: UIViewController {
             DispatchQueue.main.async {
                 self.setupEmptyDataView()
                 self.collectCollectionView.reloadData()
+                self.view.hideLoading()
             }
         }
     }
@@ -54,6 +55,7 @@ final class CollectViewController: UIViewController {
         setupUI()
         setCollectionVIew()
         setupEmptyDataView()
+        view.showLoading()
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -11,7 +11,7 @@ final class WriteView: UIView {
     
     // MARK: - Property
     
-    lazy var closeButton: UIButton = {
+    var closeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("취소", for: .normal)
         button.tintColor = .black

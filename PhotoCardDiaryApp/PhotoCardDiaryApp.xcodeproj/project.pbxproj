@@ -27,6 +27,7 @@
 		36B613AE28F86ECD0037557E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B613AD28F86ECD0037557E /* NetworkManager.swift */; };
 		36B613B028F86F5D0037557E /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B613AF28F86F5D0037557E /* WeatherData.swift */; };
 		36B9545728FC57A500D8BA1A /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B9545628FC57A500D8BA1A /* PhotoModel.swift */; };
+		36D1E59628FCE36F009F3C98 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D1E59528FCE36F009F3C98 /* UIView+Extension.swift */; };
 		36DD6ACE28F652E90071137F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6ACD28F652E90071137F /* AppDelegate.swift */; };
 		36DD6AD028F652E90071137F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6ACF28F652E90071137F /* SceneDelegate.swift */; };
 		36DD6AD828F652E90071137F /* PhotoCardDiaryApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6AD628F652E90071137F /* PhotoCardDiaryApp.xcdatamodeld */; };
@@ -62,6 +63,7 @@
 		36B613AD28F86ECD0037557E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		36B613AF28F86F5D0037557E /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		36B9545628FC57A500D8BA1A /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		36D1E59528FCE36F009F3C98 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		36DD6ACA28F652E90071137F /* PhotoCardDiaryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoCardDiaryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36DD6ACD28F652E90071137F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36DD6ACF28F652E90071137F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			children = (
 				36B3329D28F9B5A30021E0E0 /* UIImage+Extesion.swift */,
 				36A6D59E28FC8A640050A4A3 /* UIViewController+Extension.swift */,
+				36D1E59528FCE36F009F3C98 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				36DD6AEF28F65F2F0071137F /* CardViewController.swift in Sources */,
 				36B6139828F7ABFF0037557E /* CollectCell.swift in Sources */,
 				36DD6AE928F6534D0071137F /* MainViewController.swift in Sources */,
+				36D1E59628FCE36F009F3C98 /* UIView+Extension.swift in Sources */,
 				3670DB4A28F6A5B70087812E /* WriteView.swift in Sources */,
 				3670DB4F28F6FD070087812E /* CardViewDetailViewController.swift in Sources */,
 				36DD6AEB28F65E550071137F /* UnderLineSegmentedControl.swift in Sources */,

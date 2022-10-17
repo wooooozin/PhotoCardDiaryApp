@@ -38,6 +38,7 @@ final class CardViewController: UIViewController {
             DispatchQueue.main.async {
                 self.setupEmptyDataView()
                 self.photoCardCollectioView.reloadData()
+                self.view.hideLoading()
             }
         }
     }
@@ -49,6 +50,7 @@ final class CardViewController: UIViewController {
         setupUI()
         setPhotoCardColloctioView()
         setupEmptyDataView()
+        view.showLoading()
     }
     
     override func viewWillAppear(_ animated: Bool) {

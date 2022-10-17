@@ -35,6 +35,10 @@ final class WriteViewController: UIViewController {
         setupTapGestures()
         setupLocation()
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
 
 // MARK: - SetUI , Method
@@ -172,6 +176,7 @@ extension WriteViewController: CLLocationManagerDelegate {
                 switch result {
                 case .success(let result):
                     self.weatherImageInt = result.weather[0].id
+                    print(result)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

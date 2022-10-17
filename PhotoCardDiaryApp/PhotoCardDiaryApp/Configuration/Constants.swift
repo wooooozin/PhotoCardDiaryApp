@@ -23,7 +23,7 @@ public struct Icon {
     static let write = "highlighter"
     static let calendar = "calendar"
     static let sunMin = "sun.min"
-    static let sunMax = ""
+    static let sunMax = "sum.max"
     static let bolt = "cloud.bolt"
     static let fog = "cloud.fog"
     static let snow = "cloud.snow"

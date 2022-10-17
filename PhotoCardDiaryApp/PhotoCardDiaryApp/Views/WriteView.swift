@@ -11,7 +11,7 @@ final class WriteView: UIView {
     
     // MARK: - Property
     
-    var closeButton: UIButton = {
+    lazy var closeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("취소", for: .normal)
         button.tintColor = .black
@@ -19,7 +19,7 @@ final class WriteView: UIView {
         return button
     }()
     
-    lazy var addButton: UIButton = {
+   lazy var addButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("저장", for: .normal)
         button.tintColor = .black
@@ -126,8 +126,8 @@ final class WriteView: UIView {
         ])
         
         NSLayoutConstraint.activate([
-            closeButton.widthAnchor.constraint(equalToConstant: 45),
-            addButton.widthAnchor.constraint(equalToConstant: 45)
+            closeButton.widthAnchor.constraint(equalToConstant: 50),
+            addButton.widthAnchor.constraint(equalToConstant: 50)
         ])
     }
     

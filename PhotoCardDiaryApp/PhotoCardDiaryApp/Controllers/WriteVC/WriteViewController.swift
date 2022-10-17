@@ -36,8 +36,12 @@ final class WriteViewController: UIViewController {
         setupLocation()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+    override func viewDidAppear(_ animated: Bool) {
+        let window = view.window!
+        let gr0 = window.gestureRecognizers![0] as UIGestureRecognizer
+        let gr1 = window.gestureRecognizers![1] as UIGestureRecognizer
+        gr0.delaysTouchesBegan = false
+        gr1.delaysTouchesBegan = false
     }
 }
 
@@ -109,6 +113,7 @@ extension WriteViewController {
     }
     
     @objc private func addButtonTapped() {
+        print(#function)
         weatherImageString = weatherIntString(weatherImageInt)
         let memoText = writeView.memoTextView.text
         let title = writeView.titleTextField.text
@@ -116,8 +121,7 @@ extension WriteViewController {
         let image = fixImage.pngData()
         var weather = UIImage().pngData()
         guard let safeWeather = UIImage(
-            systemName: weatherImageString)?.withTintColor(.white
-            ).pngData() else {
+            systemName: weatherImageString)?.withTintColor(.white).pngData() else {
             return weather = UIImage(systemName: Icon.sunMin)?.withTintColor(.white).pngData()
         }
         weather = safeWeather
@@ -158,8 +162,8 @@ extension WriteViewController: UIImagePickerControllerDelegate & UINavigationCon
             newImage = updateImage
         }
         
-        self.writeView.mainImageView.image = newImage
         self.writeView.addButton.isEnabled = true
+        self.writeView.mainImageView.image = newImage
         picker.dismiss(animated: true, completion: nil)
     }
 }
@@ -182,6 +186,7 @@ extension WriteViewController: CLLocationManagerDelegate {
             }
         }
     }
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }

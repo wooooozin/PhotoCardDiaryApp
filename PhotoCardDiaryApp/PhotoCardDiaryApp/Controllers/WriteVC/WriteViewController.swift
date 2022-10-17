@@ -109,7 +109,6 @@ extension WriteViewController {
     }
     
     @objc private func addButtonTapped() {
-        print(#function)
         weatherImageString = weatherIntString(weatherImageInt)
         let memoText = writeView.memoTextView.text
         let title = writeView.titleTextField.text
@@ -176,7 +175,6 @@ extension WriteViewController: CLLocationManagerDelegate {
                 switch result {
                 case .success(let result):
                     self.weatherImageInt = result.weather[0].id
-                    print(result)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

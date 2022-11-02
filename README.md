@@ -29,8 +29,87 @@
 - 사용 기술 및 라이브러리:  `UIKit`, `URLSession`, `MVC`, `CoreData`, `VerticalCardSwiper`, `FSCalendar`
 <br>
 
-# 추가 기능 구현 
-- 설정 기능 
-- 공통화 객체 구현
+# 🦊 이슈
+- 화면 퍼포먼스 저하
+
+  - 코어데이터를 불러오는 과정을 비동기 방식으로 변경하고 새로운 모델 인스턴스를 생성해 불러오는 것으로 변경
+  - 이미지를 리사이징하여 Cell에 표시될 수 있도록 변경
+
+
+```swift
+// CoreDataManager
+func getPhotoListFromCoreData(complition: (([PhotoModel]) -> Void)?) {
+        var photoList: [PhotoModel] = []
+        if let context = context {
+            let request = NSFetchRequest<NSManagedObject>(entityName: self.modelName)
+            let dateOrder = NSSortDescriptor(key: "date", ascending: false)
+            request.sortDescriptors = [dateOrder]
+            DispatchQueue.global().async {
+                do {
+                    if let fetchedPhotoCardData = try context.fetch(request) as? [PhotoCardData] {
+                        fetchedPhotoCardData.forEach {
+                            photoList.append(
+                                PhotoModel(
+                                    title: $0.title,
+                                    date: $0.dateString,
+                                    memoText: $0.memoText,
+                                    image: $0.dataImage,
+                                    weather: $0.weather,
+                                    coreData: $0
+                                )
+                            )
+                        }
+                        complition?(photoList)
+                        
+                    }
+                } catch {
+                    print("코어데이터 불러 오기 실패")
+                    complition?([])
+                }
+            }
+        }
+    }
+    
+// PhotoModel
+struct PhotoModel {
+    var title: String?
+    var date: String?
+    var memoText: String?
+    var image: UIImage?
+    var weather: Data?
+    
+    var coreData: PhotoCardData?
+}
+```
+<br>
+
+```swift
+extension PhotoCardData {
+
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<PhotoCardData> {
+        return NSFetchRequest<PhotoCardData>(entityName: "PhotoCardData")
+    }
+
+    @NSManaged public var title: String?
+    @NSManaged public var date: Date?
+    @NSManaged public var memoText: String?
+    @NSManaged public var image: Data?
+    @NSManaged public var weather: Data?
+    
+    var dateString: String? {
+        let myFormatter = DateFormatter()
+        myFormatter.dateFormat = "yyyy-MM-dd"
+        guard let date = self.date else { return "" }
+        let savedDateString = myFormatter.string(from: date)
+        return savedDateString
+    }
+    
+    var dataImage: UIImage? {
+        guard let image = self.image else { return UIImage() }
+        let cellImage = UIImage(data: image)?.resize(newWidth: 250)
+        return cellImage
+    }
+}
+```
 <br>
 
